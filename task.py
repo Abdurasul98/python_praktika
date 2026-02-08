@@ -554,10 +554,11 @@
 #     for i in n:
 #         if i > max_number:
 #             max_number = i
+
 #         if i < min_number:
 #             min_number = i
 
-#     return f" neg kattasi {max_number} , eng kichigi {min_number}"
+#     return f" eng kattasi {max_number} , eng kichigi {min_number}"
 
 # result = kichik_katta(my_list)
 # print(result)
@@ -568,15 +569,19 @@
 
 # def toq_juft(n:list) -> str:
 #     toq_number = 0
+#     toq_result = []
 #     juft_number = 0
+#     juft_result = []
 
 #     for i in n:
 #         if i % 2 == 0:
 #             juft_number += 1
+#             juft_result.append(i)
 #         else:
 #             toq_number +=1
+#             toq_result.append(i)
 
-#     return f" Natija juft {[juft_number]} ta va toq {[toq_number]} ta"
+#     return f" Natija {juft_result} -> juft {[juft_number]} ta va {toq_result} -> toq {[toq_number]} ta"
 
 # result = toq_juft(my_list)
 
@@ -600,9 +605,8 @@
 
 
 
-
 # my_list = [1,3,5,3,7,3,9,3]
-# x = 3
+# x = 4
 
 # def nechi_marta(n:list,x:int) -> int:
 #     count = 0
@@ -610,6 +614,8 @@
 #     for i in n:
 #         if x == i:
 #             count +=1
+#         else:
+#             pass
 #     return count
 
 # result = nechi_marta(my_list,x)
@@ -631,6 +637,7 @@
 #     for i in range(len(n)-1,-1,-1):
 #         result.append(n[i])
 #     return result
+
 # result = teskari(my_list)
 # print(result)
 
@@ -714,22 +721,708 @@
 
 
 
-my_list = [3,7,2,9,5]
-print(my_list)
+# my_list = [3,7,2,9,5]
+# print(my_list)
 
-def kattasi_oxiriga(n:list) -> list:
-    max_number= n[0]
-    result_index = 0
+# def kattasi_oxiriga(n:list) -> list:
+#     max_number= n[0]
+#     result_index = 0
 
-    for index,value in enumerate(n):
-        if value > max_number:
-            max_number = value
-            result_index = index
-    result = n.pop(result_index)
-    n.append(result)
-    return n
+#     for index,value in enumerate(n):
+#         if value > max_number:
+#             max_number = value
+#             result_index = index
+#     result = n.pop(result_index)
+#     n.append(result)
+#     return n
         
 
-result = kattasi_oxiriga(my_list)
+# result = kattasi_oxiriga(my_list)
 
+# print(result)
+
+
+
+
+# my_list = [3,5,1,4,2]
+# print(my_list)
+
+# def eng_kattasi_ogiriga(n:list) -> list:
+#     max_number = n[0]
+#     value_index = 0
+    
+#     for index,value in enumerate(n):
+#         if value > max_number:
+#             max_number = value
+#             value_index = index
+
+#     result = n.pop(value_index)
+#     n.append(result)
+#     return n
+
+# result = eng_kattasi_ogiriga(my_list)
+# print(result)
+
+
+
+
+# s = "a3b2c1"
+
+# def faqat_raqamlar_teskarisi(n:str) -> str:
+#     temp = []
+#     result = ""
+#     for i in n:
+#         if i.isdigit():
+#             temp.append(int(i))
+    
+#     for i in range(len(temp)):
+#         for j in range(len(temp)-i-1):
+#             if temp[j] > temp[j+1]:
+#                 temp[j],temp[j+1] = temp[j+1],temp[j]
+    
+    
+#     for i in temp:
+#         result +=str(i)
+    
+
+#     return result[::-1]
+
+# result = faqat_raqamlar_teskarisi(s)
+# print(result)
+
+
+
+
+
+# my_list = [1, 2, 3, 4, 5, 6]
+# print(my_list)
+
+
+# def juft_yangi_list(n:list) -> list:
+#     result =[]
+#     for i in n:
+#         if i % 2 ==0:
+#             result.append(i)
+
+#     return result
+# result = juft_yangi_list(my_list)
+# print(result)
+
+
+
+
+# my_tuple = (4,1,3,2)
+
+# def kichik_raqam_kik(n:tuple) -> str:
+#     test = n
+#     my_list = list(n)
+
+#     min_number = my_list[0]
+#     index_value = 0
+
+#     for index,value in enumerate(my_list):
+#         if value < min_number:
+#             min_number = value
+#             index_value = index
+#     my_list.remove(index_value)
+#     n = tuple(my_list)
+
+#     return f"Eng kichik raqam: {[min_number]} va shu {test} dan olib tashlandi natija:{n}"
+
+# result = kichik_raqam_kik(my_tuple)
+# print(result)
+
+
+
+
+# my_tuple = (1, 2, 3, 4, 5)
+# print("Eski xolati",my_tuple)
+
+
+# def tuplega_qaytarish(n:tuple) -> list:
+#     result = []
+#     temp = list(n)
+
+#     for value in temp:
+#         if value % 2 == 1:
+#             result.append(value)
+    
+#     return result
+
+
+# result = tuplega_qaytarish(my_tuple)
+# print("hozirgi xolati",result)
+
+
+
+
+# my_tuple = (2, -1, 3, -4)
+
+# def manfiyni_nolga(n:tuple) -> tuple:
+#     temp = list(n)
+#     value_index = 0
+
+#     for index,value in enumerate(temp):
+#         if value < 0:
+#             value_index = index
+#             temp.remove(value)
+#             temp.insert(value_index,0)
+           
+#     temp = tuple(temp)
+#     return temp
+
+# result = manfiyni_nolga(my_tuple)
+# print(result)
+
+
+
+
+# my_list = [1, 2, 2, 3, 1, 4]
+
+# def unikal_list(n:list):
+#     temp = set(n)
+#     temp = list(temp)
+
+#     # for i in range(len(temp)):
+#     #     for j in range(len(temp)-i-1):
+#     #         if temp[j] > temp[j+1]:
+#     #             temp[j], temp[j+1] = temp[j+1],temp[j]
+
+#     result = sorted(temp)
+
+#     return result
+
+# result = unikal_list(my_list)
+# print(result) 
+
+
+
+
+# my_list1 = [1, 2, 3, 4]
+# my_list2 = [3, 4, 5, 6]
+
+
+# def bor_qiymat_bita_list(n:list,m:list) -> list:
+#     temp1 = set(n)
+#     temp2 = set(m)
+#     result = list(temp1.intersection(temp2))
+#     return result
+
+# result = bor_qiymat_bita_list(my_list1,my_list2)
+# print(result)
+
+
+
+
+# my_list1 = [1, 2, 3, 4]
+# my_list2 = [2, 4]
+
+
+# def bor_qiymat_bita_list(n:list,m:list) -> list:
+#     temp1 = set(n)
+#     temp2 = set(m)
+#     result = list(temp1.symmetric_difference(temp2))
+#     return result
+
+# result = bor_qiymat_bita_list(my_list1,my_list2)
+# print(result)
+
+
+
+
+# my_list = [1, 2, 2, 3, 1, 2]
+
+# def dct_count(n:list) -> dict:
+#     count = 0
+#     dct = {}
+#     for i in n:
+#         count = n.count(i)
+#         dct[i] = count
+#     return dct
+
+# result1 = dct_count(my_list)
+# print(result1)
+
+# def max_element(n:dict) -> int:
+#     max_value = 0
+#     result = 0
+#     for key,value in n.items():
+#         if value > max_value:
+#             max_value = value
+#             result = key
+#     return result
+
+# result2 = max_element(result1)
+# print(result2)
+
+
+
+# my_dict = {1: 2, 2: 1, 3: 4}
+
+# def yangi_dict(n:dict) -> dict:
+#     max_value = 1
+#     result = {}
+
+#     for key,value in n.items():
+#         if value > max_value:
+#             result[key] = value
+#     return result
+
+# result = yangi_dict(my_dict)
+# print(result)
+
+
+
+# class NumberTools:
+#     def __init__(self,n:list):
+#         self.n = n
+
+#     def count_positive(self):
+#         count = 0
+
+#         for i in self.n:
+#             if i > 0:
+#                 count += 1
+        
+#         return count
+    
+# my_numbers = [-1, 2, 3, -4, 5]
+
+# o1 = NumberTools(my_numbers)
+# result = o1.count_positive()
+# print(result)
+                
+
+
+# class ArrayUtils:
+#     def __init__(self,n:list):
+#         self.n = n
+
+#     def max_element(self):
+#         max_value = self.n[0]
+
+#         for i in self.n:
+#             if i > max_value:
+#                 max_value = i
+#         return max_value
+
+#     def min_element(self):
+#         min_value = self.n[0]
+
+#         for i in self.n:
+#             if i < min_value:
+#                 min_value = i
+#         return min_value
+
+#     def unique_elements(self):
+#         unique_value = []
+
+#         for i in self.n:
+#             if i not in unique_value:
+#                 unique_value.append(i)
+
+#         return unique_value
+    
+# my_list = [1, 2, 2, 3]
+
+# o1 = ArrayUtils(my_list)
+
+# result1 = o1.max_element()
+# result2 = o1.min_element()
+# result3 = o1.unique_elements()
+
+
+# print("Max =",result1)
+# print("Min =",result2)
+# print("Unique =",result3)
+
+
+
+# my_list = [5, 4, 3, 5, 2, 4, 3]
+
+# def unikal_sortlash(n:list) -> tuple:
+#     temp = set(n)
+#     sorting = list(temp)
+#     # value_sorted = sorted(sorting)
+
+
+#     for i in range(len(sorting)):
+#         for j in range(len(sorting)-i-1):
+#             if sorting[j] > sorting[j+1]: 
+#                 sorting[j] , sorting[j+1] = sorting[j+1] , sorting[j]
+
+
+#     # result = tuple(value_sorted)
+#     result = tuple(sorting)
+#     return result
+
+# result = unikal_sortlash(my_list)
+# print(result)
+
+
+# students = {
+#     "Ali": {"math", "physics", "english"},
+#     "Vali": {"math", "english"},
+#     "Hasan": {"math", "english", "biology"}
+# }
+
+
+
+# def umumiy_fan(n:dict) -> dict:
+#     result = None
+#     for values in n.values():
+#         if result is None :
+#             result = values.copy()
+#         else:
+#             result = values.intersection(result)
+#     return result
+
+# result = umumiy_fan(students)
+# print(result)
+
+
+
+# students = {
+#     "Ali": {"math", "physics"},
+#     "Vali": {"math", "english"},
+#     "Hasan": {"math", "biology"}
+# }
+
+
+# def bita_fan_mashxur(n:dict) -> dict:
+#     result = None
+
+#     for i in n.values():
+#         if result is None:
+#             result = i.copy()
+#         else:
+#             result = result.intersection(i)
+
+#     return result
+
+# result = bita_fan_mashxur(students)
+# print(result)
+
+
+
+# student_courses = {
+#     "Ali": ["Math", "Physics", "Chemistry"],
+#     "Vali": ["Biology", "Chemistry", "Math"],
+#     "Guli": ["Physics", "Biology", "Math"]
+# }
+
+
+# def umumiy_fan(n:dict) ->set:
+#     result = None
+
+#     for i in n.values():
+#         temp = set(i)
+#         if result is None:
+#             result = temp.copy()
+#         else:
+#             result = result.intersection(temp)
+#     return result
+
+# result = umumiy_fan(student_courses)
+# print(result)
+
+
+
+
+# students_books = {
+#     "Samira": ["Harry Potter", "Lord of the Rings", "Python Basics"],
+#     "Anvar": ["Python Basics", "Data Science 101", "Lord of the Rings"],
+#     "Nodir": ["Lord of the Rings", "Python Basics", "Deep Learning"]
+# }
+
+
+# def oqimagan_kitoblar(n:dict) -> set:
+
+#     all_books = {"Harry Potter", "Lord of the Rings", "Python Basics", "Data Science 101", "Deep Learning", "Machine Learning"}
+
+
+#     result = set()
+#     for i in n.values():
+#         result.update(i)
+
+#     return all_books - result
+
+# result = oqimagan_kitoblar(students_books)
+# print(result)
+
+
+
+# a = [1, 2, 3, 4]
+# b = [3, 4, 5, 6]
+
+# temp1 = set(a)
+# temp2 = set(b)
+# result = temp1.intersection(temp2)
+# print(result)
+
+
+
+# a = [10, 20, 30, 40]
+# b = [30, 40, 50]
+
+
+# temp1 = set(a)
+# temp2 = set(b)
+# result = temp1.difference(temp2)
+# print(result)
+
+
+
+
+# s = {5, 10, 15, 20}
+# n = 10
+
+# if n in s:
+#     print('Bor')
+# else:
+#     print('Yoq')
+    
+
+
+# words = ["apple", "banana", "apple", "cherry", "banana", "date"]
+
+
+# def set_qaytarish(n:list) -> set:
+    
+#     result = set()
+
+#     for i in n:
+#         if n.count(i) == 1:
+#             result.add(i)
+        
+#     return result
+
+# result = set_qaytarish(words)
+# print(result)
+
+
+
+# my_dict = {
+#     "Ali": ["Math", "Physics", "Python"],
+#     "Vali": ["Python", "Biology"],
+#     "Hasan": ["Math", "Chemistry"],
+#     "Husan": ["Chemistry"]
+# }
+
+
+
+# def unikal_fan(n:dict) -> set:
+#     result = set()
+#     temp = list()
+
+#     for values in n.values():
+#         for value in values:
+#             temp.append(value)
+
+#     for i in temp:
+#         if temp.count(i) == 1:
+#             result.add(i)
+#     return result
+        
+
+# result = unikal_fan(my_dict)
+# print(result)
+
+
+
+
+# my_dict = {
+#     "Ali": ["Math", "Physics", "Python"],
+#     "Vali": ["Python", "Biology"],
+#     "Hasan": ["Math", "Chemistry"],
+#     "Husan": ["Chemistry"]
+# }
+
+
+# def kop_fan(n:dict) -> set:
+#     result = set()
+#     count = dict()
+
+#     for i in n.values():
+#         for j in i:
+#             count[j] = count.get(j,0) + 1
+    
+#     for key,value in count.items():
+#         if value == 1:
+#             result.add(key)
+
+#     return result
+
+
+# result = kop_fan(my_dict)
+# print(result)
+
+
+
+# my_strings = 'aabbbc'
+
+# def count_dict(n:str) -> dict:
+#     count = dict()
+#     result = dict()
+
+#     for i in n:
+#         count[i] = count.get(i,0) +1
+
+#     for key,value in count.items():
+#         result[key] = value
+#     return result
+
+# result = count_dict(my_strings)
+# print(result)
+
+
+
+# my_list = [1, 3, 2, 3, 3, 4, 3, 2]
+
+
+# def kop_takrorlangan(n:list) -> int:
+#     result = 0
+
+#     for i in n:
+#         temp = n.count(i) 
+        
+#         if temp > result:
+#             result = temp
+
+            
+#     return result
+
+# result = kop_takrorlangan(my_list)
+# print(result)
+
+
+
+# my_list = [4, 5, 4, 6, 7, 5]
+
+# def unikal_raqam(n:list) -> list:
+#     count = {}
+#     result = list()
+    
+#     for value in n:
+#         count[value] = count.get(value,0) +1
+
+#     for key,values in count.items():
+#         if values == 1:
+#             result.append(key)
+        
+#     return result
+# result = unikal_raqam(my_list)
+# print(result)
+
+
+
+
+
+#                                             FINESH TASK
+
+
+# String --------------------------------------------------------
+
+# task - Easy
+
+# temp = 'hello world'
+
+# def katta_harf(n:str)-> str:
+
+#     result = str()
+#     for i in n:
+#         result = result + i.upper()
+#     return result
+
+# result = katta_harf(temp)
+# print(result)
+
+
+# task - Medium
+
+# temp = 'apple,banana,orange'
+
+# # temp = 'apple,banana,orange'.capitalize().split(',')
+# # print(temp)
+
+# def list_katta_harf(n:str)->str:
+#     result = []
+#     temp = n.split(',')
+#     for i in temp:
+#         if not i[0].isupper():
+#             result.append(i.capitalize())
+
+#     return result
+# result = list_katta_harf(temp)
+# print(result)
+
+
+
+# task - Hard
+
+# temp = "The quick brown fox jumps over the lazy dog"
+
+# def oxirgi_harfi(n:str)-> str:
+#     value = n.split(' ')
+#     result = []
+
+#     for i in value:
+#         result.append(i[-1])
+
+#     return result
+
+# result = oxirgi_harfi(temp)
+# print(result)
+
+
+# List --------------------------------------------------------
+
+# task - Easy
+
+# temp = [1, 2, 3, 4, 5]
+
+# def raqamlar_kopaytmasi(n:list)-> list:
+#     result = []
+
+#     for i in n:
+#         result.append(i*2)
+
+#     return result
+# result = raqamlar_kopaytmasi(temp)
+# print(result)
+
+
+
+
+# task - Medium
+
+# temp = [1, 2, 2, 3, 4, 4, 4, 5]
+
+# def takrorsiz_list(n:list)-> list:
+#     result = []
+#     for value in n:
+#         if n.count(value) >= 1 and value not in result:
+#             result.append(value)
+            
+#     return result
+
+# result = takrorsiz_list(temp)
+# print(result)
+
+
+# task - Hard
+
+
+my_list = [1, 2, [3, 4, [5, 6]], 7]
+result = []
+
+def bita_listga(n):
+  
+    for i in n:
+        if isinstance(i,int):
+            result.append(i)
+        else:
+            bita_listga(i)
+
+bita_listga(my_list)
 print(result)
