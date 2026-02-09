@@ -1413,16 +1413,224 @@
 # task - Hard
 
 
-my_list = [1, 2, [3, 4, [5, 6]], 7]
-result = []
+# my_list = [1, 2, [3, 4, [5, 6]], 7]
+# result = []
 
-def bita_listga(n):
+# def bita_listga(n):
   
-    for i in n:
-        if isinstance(i,int):
-            result.append(i)
-        else:
-            bita_listga(i)
+#     for i in n:
+#         if isinstance(i,int):
+#             result.append(i)
+#         else:
+#             bita_listga(i)
 
-bita_listga(my_list)
-print(result)
+# bita_listga(my_list)
+# print(result)
+
+
+
+# Tuple --------------------------------------------------------
+
+
+# task - Easy
+
+
+# my_tuple = (1, 2, 3, 4)
+
+# def tuple_max(n:tuple)-> int:
+#     max_number = n[0]
+
+#     for i in n:
+#         if i > max_number:
+#             max_number = i
+
+#     return max_number
+
+
+# result = tuple_max(my_tuple)
+# print(result)
+
+
+
+# task - Medium
+
+
+# my_tuple = (1, 2, 3, 4)
+# x = 5
+
+# def add_tuple(n:tuple,number:int)-> tuple:
+#     my_list = list(n)
+#     lenght = len(my_list)
+#     max_index = 0
+
+#     for index in range(lenght):
+#         if index > max_index:
+#             max_index = index+1
+
+#     print(max_index)
+#     if max_index == lenght:
+#         my_list.insert(max_index,number)
+    
+#     result  = tuple(my_list)
+
+#     return result
+
+
+# result = add_tuple(my_tuple,x)
+# print(result)
+
+
+
+# task - Hard
+
+
+# my_tuple = (1, 2, 3, 2, 1, 4)
+
+
+# def unique_elements(n:tuple)-> tuple:
+#     count = dict()
+    
+#     for value in n:
+#         if value in count:
+#             count[value] += 1
+
+#         else:
+#             count[value] = 1
+
+#     unique = list()
+#     duplicate = list()
+    
+#     for key,values in count.items():
+#         if values == 1:
+#             unique.append(key)
+#         else:
+#             duplicate.extend([key] * values)
+   
+#     return tuple(unique), tuple(duplicate)
+# result = unique_elements(my_tuple)
+# print(result)
+
+
+
+
+# Set --------------------------------------------------------
+
+
+# task - Easy
+
+
+# a = {1, 2, 3, 3, 2, 4}
+
+# print(a)
+
+
+# task - Medium
+
+
+# a = {1, 2, 3}
+# b = {3, 4, 5}
+
+
+# def yagona_set(a:set,b:set)-> set:
+#     for i in a:
+#         b.add(i)
+    
+#     return b
+# result = yagona_set(a,b)
+# print(result)
+
+
+# # def yagona_set(a:set,b:set)-> set:
+# #     result = a.union(b)
+    
+# #     return result
+# # result = yagona_set(a,b)
+# # print(result)
+
+# task - Hard
+
+
+# my_set = {1, 2, 3, 4, 5}
+
+# def toq_sonlar(n:set):
+#     my_list = list(n)
+#     temp = list()
+
+#     for index,value in enumerate(my_list):
+#         if value % 2 == 0:
+#             my_list.remove(value)
+#         else:
+#             number = my_list.pop(index)
+#             temp.append(number)
+#     temp =set(temp)
+#     my_list = set(my_list)
+#     return f"Ushbu setdagi qiymatlardan: {n} biz shularni: {my_list} olib tashladik, shu natijani sizga qaytardik: {temp}"
+
+# result = toq_sonlar(my_set)
+# print(result)
+
+
+
+
+
+# Dictionary --------------------------------------------------------
+
+# task - Easy
+
+
+# my_dict = {"a": 1, "b": 2, "c": 3}
+
+
+# def qiymatlarni_kopaytmasi(n:dict)-> dict:
+
+#     for key,values in n.items():
+#         n[key] = values * 10
+
+#     return n
+# result = qiymatlarni_kopaytmasi(my_dict)
+# print(result)
+
+
+
+# task - Medium
+
+
+# my_dict = {"Ali": 20, "Vali": 25, "Hasan": 30}
+# x = 25
+
+# def eng_katta_qiymat(n:dict,m:int)-> dict:
+    
+#     result = dict()
+
+#     for key,values in n.items():
+#         if values > m:
+#             result[key] = values
+#     return result
+
+# result = eng_katta_qiymat(my_dict,x)
+# print(result)
+
+
+
+# task - Hard
+
+
+
+# my_dict = {"Ali": [80, 90], "Vali": [70, 60], "Hasan": [100, 90]}
+
+
+# def ortacha_ball(n:dict)-> dict:
+#     result = dict()
+    
+
+#     for key,values in n.items():
+#         sum = 0
+#         for i in values:
+#             sum += i
+#         result[key] = sum / len(values)
+#     return result
+
+# result = ortacha_ball(my_dict)
+# print(result)
+
+
