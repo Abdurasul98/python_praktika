@@ -1634,3 +1634,364 @@
 # print(result)
 
 
+
+
+
+# my_list = [5, 4, 3, 5, 2, 4, 3]
+
+# def unikal_element(n:list) -> tuple:
+#     temp = list()
+
+#     for i in n:
+#         if i not in temp: temp.append(i)
+            
+            
+#     for j in range(len(temp)):
+#         for k in range(len(temp)-j-1):
+#             if temp[k] > temp[k+1]:
+#                 temp[k], temp[k+1] = temp[k+1], temp[k] 
+
+#     result = tuple(temp)
+
+#     return result
+
+
+
+# result = unikal_element(my_list)
+# print(result)
+
+
+
+
+# my_dict = {
+#     "Ali": {"math", "physics", "english"},
+#     "Vali": {"math", "english"},
+#     "Hasan": {"math", "english", "biology"}
+# }
+
+
+# def barcha_umumiy_fan(n:dict)-> set:
+#     my_set = set()
+#     count = dict()
+
+#     for value in n.values():
+#         for i in value:
+#             count[i] = count.get(i,0) +1
+
+#     print(count)
+
+#     for key,values in count.items():
+#         if values == len(n):
+#             my_set.add(key)
+    
+#     return my_set
+
+# result = barcha_umumiy_fan(my_dict)
+# print(result)
+
+
+
+# my_tuple = (1, 2, 3, 4, 5, 6)
+
+
+# def juft_son_list(n:tuple) -> list:
+#     result = list()
+
+#     for i in n:
+#         if i % 2 == 0 : result.append(i)
+            
+#     return result
+
+# result = juft_son_list(my_tuple)
+# print(result)
+
+
+
+
+# my_dict = {
+#     "olma": 80,
+#     "banan": 120,
+#     "anor": 150,
+#     "nok": 90
+# }
+
+# x = 100
+
+
+# def katta_maxsulot_list(n:dict,m:int) -> list:
+#     result =list()
+
+#     for key,value in n.items():
+#         if value > m: result.append(key)
+            
+#     return result
+
+# result = katta_maxsulot_list(my_dict,x)
+# print(result)
+
+
+
+
+# data = [1, "hello", 2, "world", 3]
+
+
+# def list_elements_type_to_dict(n:list)-> dict:
+#     # oldindan yozib ketish
+#     # result = {"numbers": [], "strings": []}
+
+#     result = dict()
+#     numbers = []
+#     words = []
+
+
+#     for i in n:
+#         if isinstance(i,int):
+#             numbers.append(i)
+#         else:
+#             words.append(i)
+
+
+#     result['numbers'] = numbers
+#     result['strings'] = words
+#     return result
+
+# result =list_elements_type_to_dict(data)
+# print(result)
+
+
+
+# my_tuple = (1, 2, 3, 2, 4, 1, 5)
+
+
+# def element_takrorlangan(n:tuple) -> set:
+#     count = dict()
+#     result = set()
+
+#     for i in n:
+#         count[i] = count.get(i,0) +1
+
+#     for key,values in count.items():
+
+#         if values != 1:
+#             result.add(key)
+    
+#     return result
+
+# result = element_takrorlangan(my_tuple)
+# print(result)
+
+
+
+
+# my_dict = {
+#     "Ali": 5,
+#     "Vali": 8,
+#     "Hasan": 3
+# }
+
+
+# def katta_qiymat(n:dict) -> str:
+#     max_number = 0 
+#     result = None
+
+#     for key,values in n.items():
+#         if values > max_number:
+#             max_number = values
+#             result = key
+#     return result
+# result = katta_qiymat(my_dict)
+# print(result)
+
+
+
+# my_list = ["python", "list", "tuple"]
+
+
+# def key_value_uzunligi(n:list) -> dict:
+#     result = dict()
+
+#     for i in n:
+#         result[i] = len(i)
+
+#     return result
+
+
+# # def key_value_uzunligi(n:list) -> dict:
+# #     result = dict()
+
+# #     for i in n:
+# #         count = 0
+# #         for _ in i:
+# #             count += 1
+# #         result[i] = count
+
+# #     return result
+
+# # result = key_value_uzunligi(my_list)
+# # print(result)
+
+
+
+
+#                                OOP
+
+
+# class Book:
+#     def __init__(self,title,author):
+#         self.title = title
+#         self.author = author
+
+
+#     def read(self):
+#         print(f"Siz kitobni o‘qiysiz: {self.title} by {self.author}")
+
+
+# o1 = Book("Python Basics",'Ali')
+# o2 = Book("Data Science",'Vali')
+
+# o1.read()
+# o2.read()
+
+
+
+
+
+# class Book:
+#     def __init__(self,title:str, author:str, pages:int):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+#     def read(self):
+#         print(f"Siz kitobni o'qiysiz: {self.title} by {self.author}. Kitobda {self.pages} sahifa bor.")
+
+# o1 = Book("Python Basic","Ali",200)
+# o2 = Book("Data Science","Vali",350)
+# o3 = Book("AI Guide","Hasan",500)
+
+
+# o1.read()
+# o2.read()
+# o3.read()
+
+
+
+# class Book:
+#     def __init__(self,title:str , author:str, pages:int):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+    
+#     def read(self):
+#         print(f"Siz kitobni o'qiysiz: {self.title} by {self.author}. Kitobda {self.pages} sahifa bor.")
+
+
+#     def is_long(self):
+#         if self.pages > 300 :
+#             print("Bu uzun kitob")
+#         else:
+#             print("Bu qisqa kitob")
+
+
+
+# o1 = Book("Python Basic","Ali",200)
+# o2 = Book("Data Science","Vali",350)
+# o3 = Book("AI Guide","Hasan",500)
+
+
+# o1.is_long()
+# o2.is_long()
+# o3.is_long()
+
+
+# class Book:
+#     def __init__(self,title:str, author:str, pages:int):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+    
+#     def read(self):
+#         print(f"Siz kitobni o'qiysiz: {self.title} by {self.author}. Kitobda {self.pages} sahifa bor.")
+
+
+#     def is_long(self):
+#         if self.pages > 300 :
+#             print("Bu uzun kitob")
+#         else:
+#             print("Bu qisqa kitob")
+
+
+#     def reading_time(self):
+#         oqilish_vaqti = 2
+
+#         result = self.pages * oqilish_vaqti
+
+#         soat = result // 60
+#         minut = result % 60
+
+#         print(f"{self.title} kitobni o‘qish uchun {soat} soat {minut} daqiqa kerak.")
+
+
+
+# o1 = Book("Python Basic","Ali",200)
+# o2 = Book("Data Science","Vali",350)
+# o3 = Book("AI Guide","Hasan",500)
+
+
+# o1.reading_time()
+# o2.reading_time()
+# o3.reading_time()
+
+
+
+
+# class Book:
+#     def __init__(self,title,author,pages):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+
+#     def read(self):
+#         print(f"Siz kitobni o'qiysiz: {self.title} by {self.author}. Kitobda {self.pages} sahifa bor.")
+
+
+#     def is_long(self):
+#         if self.pages > 300 :
+#             print("Bu uzun kitob")
+#         else:
+#             print("Bu qisqa kitob")
+
+
+#     def reading_time(self):
+#         oqilish_vaqti = 2
+
+#         result = self.pages * oqilish_vaqti
+
+#         soat = result // 60
+#         minut = result % 60
+
+#         print(f"{self.title} kitobni o‘qish uchun {soat} soat {minut} daqiqa kerak.")
+
+
+
+#     def compare_pages(self,other_book):
+#         if self.pages > other_book.pages:
+#             print(f"{self.title} ko‘proq sahifaga ega")
+
+#         elif self.pages < other_book.pages:
+#             print(f"{other_book.title} ko‘proq sahifaga ega")
+        
+#         else:
+#             print("Ikkala kitob teng")
+
+
+# o1 = Book("Python Basic","Ali",200)
+# o2 = Book("Data Science","Vali",350)
+# o3 = Book("AI Guide","Hasan",500)
+
+
+# o1.compare_pages(o2)
+# o2.compare_pages(o3)
