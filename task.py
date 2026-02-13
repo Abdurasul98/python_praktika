@@ -1995,3 +1995,152 @@
 
 # o1.compare_pages(o2)
 # o2.compare_pages(o3)
+
+
+
+
+# class Book:
+#     def __init__(self, title:str, author:str, pages:int):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+    
+#     def read(self):
+#         print(f"Siz kitobni o'qiysiz: {self.title} by {self.author}. Kitobda {self.pages} sahifa bor.")
+
+
+#     def is_long(self):
+#         if self.pages > 300 :
+#             print("Bu uzun kitob")
+#         else:
+#             print("Bu qisqa kitob")
+
+
+#     def reading_time(self):
+#         oqilish_vaqti = 2
+
+#         result = self.pages * oqilish_vaqti
+
+#         soat = result // 60
+#         minut = result % 60
+
+#         print(f"{self.title} kitobni o‘qish uchun {soat} soat {minut} daqiqa kerak.")
+
+
+
+#     def compare_pages(self,other_book):
+#         if self.pages > other_book.pages:
+#             print(f"{self.title} ko‘proq sahifaga ega")
+
+#         elif self.pages < other_book.pages:
+#             print(f"{other_book.title} ko‘proq sahifaga ega")
+        
+#         else:
+#             print("Ikkala kitob teng")
+
+
+    
+#     def better_book(self, other_book):
+#         result_self = self.pages 
+#         if self.pages > 400:
+#             result_self = self.pages + 50
+
+#         result_other_book = other_book.pages
+#         if other_book.pages > 400:
+#             result_other_book = other_book.pages + 50
+
+
+#         if result_self > result_other_book:
+#             print(f"{self.title} yaxshiroq kitob")
+#         elif result_other_book > result_self:
+#             print(f"{other_book.title} yaxshiroq kitob")
+#         else:
+#             print("Ikkala kitob teng baholandi")
+
+
+
+# o1 = Book("Python Basic","Ali",200)
+# o2 = Book("Data Science","Vali",350)
+# o3 = Book("AI Guide","Hasan",500)
+
+
+
+# o1.better_book(o2)
+# o2.better_book(o3)
+
+
+
+
+# class Book:
+#     def __init__(self, title:str, author:str, pages:int):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+    
+#     def read(self):
+#         print(f"Siz kitobni o'qiysiz: {self.title} by {self.author}. Kitobda {self.pages} sahifa bor.")
+
+
+#     def is_long(self):
+#         if self.pages > 300 :
+#             print("Bu uzun kitob")
+#         else:
+#             print("Bu qisqa kitob")
+
+
+#     def reading_time(self):
+#         oqilish_vaqti = 2
+
+#         result = self.pages * oqilish_vaqti
+
+#         soat = result // 60
+#         minut = result % 60
+
+#         print(f"{self.title} kitobni o‘qish uchun {soat} soat {minut} daqiqa kerak.")
+
+
+
+#     def compare_pages(self,other_book):
+#         if self.pages > other_book.pages:
+#             print(f"{self.title} ko‘proq sahifaga ega")
+
+#         elif self.pages < other_book.pages:
+#             print(f"{other_book.title} ko‘proq sahifaga ega")
+        
+#         else:
+#             print("Ikkala kitob teng")
+
+
+    
+#     def better_book(self, other_book):
+#         result_self = self.pages 
+#         if self.pages > 400:
+#             result_self = self.pages + 50
+
+#         result_other_book = other_book.pages
+#         if other_book.pages > 400:
+#             result_other_book = other_book.pages + 50
+
+
+#         if result_self > result_other_book:
+#             print(f"{self.title} yaxshiroq kitob")
+#         elif result_other_book > result_self:
+#             print(f"{other_book.title} yaxshiroq kitob")
+#         else:
+#             print("Ikkala kitob teng baholandi")
+
+
+    
+
+
+
+# o1 = Book("Python Basic","Ali",200)
+# o2 = Book("Data Science","Vali",350)
+# o3 = Book("AI Guide","Hasan",500)
+
+
+
+# o1.better_book(o2)
+# o2.better_book(o3)
