@@ -2132,8 +2132,6 @@
 #             print("Ikkala kitob teng baholandi")
 
 
-    
-
 
 
 # o1 = Book("Python Basic","Ali",200)
@@ -2144,3 +2142,5 @@
 
 # o1.better_book(o2)
 # o2.better_book(o3)
+
+
