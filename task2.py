@@ -265,3 +265,281 @@
 # car1.brake(2000)
 # car1.info()
 
+
+
+# 3-MAVZU: Instance atributlari va metodlari
+
+# Bu mavzuda asosiy tushuncha — har bir object o‘ziga tegishli ma’lumotga ega bo‘lishi.
+
+
+# 1. Instance variable (Instance atribut)
+# Bu self orqali yaratiladigan atributlar.
+
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+
+# self.name — instance variable.
+
+
+# Agar 2 ta object yaratsak:
+
+# p1 = Person("Ali")
+# p2 = Person("Vali")
+
+# p1.name → Ali
+# p2.name → Vali
+
+# Har biri alohida saqlanadi.
+
+
+# 2. Instance method
+# Bu oddiy metod bo‘lib, birinchi parametri doim self bo‘ladi.
+
+# def info(self):
+#     print(self.name)
+
+# Nega self kerak?
+# Chunki metod object ichidagi ma’lumotlarga murojaat qiladi.
+
+
+
+# 3. Metod ichida atributlardan foydalanish
+
+# class BankAccount:
+#     def __init__(self, owner, balance):
+#         self.owner = owner
+#         self.balance = balance
+
+#     def deposit(self, amount):
+#         self.balance += amount
+
+
+# Bu yerda:
+
+# self.balance o‘zgaradi
+# Har bir account o‘z balansiga ega
+
+
+# Muhim farqni tushun
+
+# Instance atribut → har bir object uchun alohida
+# Instance metod → object ichidagi atribut bilan ishlaydi
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+
+# "BankAccount" nomli class yozing.
+
+# Atributlar:
+
+# owner
+# balance
+
+# Metodlar:
+
+# deposit(amount)
+# withdraw(amount) → balans yetarli bo‘lsa ayirsin, aks holda "Yetarli mablag‘ yo‘q" chiqarsin
+# info() → quyidagicha chiqarishi kerak:
+
+# Hisob egasi: Ali
+# Balans: 1200
+
+# Sinov:
+
+# 2 ta account yarating.
+# Birining balansini o‘zgartirganda ikkinchisiga ta’sir qilmasligi kerak.
+
+
+
+# class BankAccount:
+#     def __init__(self, owner:str):
+#         self.owner = owner
+#         self.balance = 0
+
+
+#     def deposit(self,amount):
+#         if amount < 0:
+#             print("Amount cannot be negative")
+#         else:
+#             self.balance += amount
+#         return f"Pul solindi: {self.balance}"
+
+#     def withdraw(self,amount):
+#         if amount < self.balance:
+#             self.balance -= amount
+#         else:
+#             print("Not enought balance")
+#         return f"Pul yechilish miqdori: {amount}"
+
+
+#     def info(self):
+#         result = f"Hisob egasi: {self.owner}  Balance: {self.balance}"
+#         return result
+
+
+# o1 = BankAccount("Abdurasul")
+# o2 = BankAccount("Robiya")
+
+
+# print(o1.deposit(777.7))
+# print(o1.withdraw(77.7))
+# print(o1.info())
+
+# print()
+
+# print(o2.deposit(777.7))
+# print(o2.withdraw(778.7))
+# print(o2.info())
+
+
+
+
+
+# 4-MAVZU: Class atributlari va class metodlari
+
+# Bu mavzuda 3 ta yangi tushuncha:
+
+# Class variable
+# @classmethod
+# @staticmethod
+
+# Va ularning instance bilan farqi.
+
+# 1. Class variable (class atribut)
+# Bu atribut hamma objectlar uchun umumiy bo‘ladi masalan:
+
+# class Student:
+#     school = "IT School"
+
+# s1 = Student()
+# s2 = Student()
+
+# Ikkalasida ham:
+
+# s1.school → IT School
+# s2.school → IT School
+
+# Bu atribut bitta joyda saqlanadi.
+
+# Instance vs Class farqi
+
+# Instance atribut:
+# self.name
+
+# → har objectda alohida
+
+# Class atribut:
+# Student.school
+
+# → hammaga umumiy
+
+
+# 2. Class method (@classmethod)
+
+# Bu metod class bilan ishlaydi, object bilan emas.
+# Birinchi parametri self emas, cls bo‘ladi.
+
+# class Student:
+#     school = "IT School"
+
+#     @classmethod
+#     def change_school(cls, new_name):
+#         cls.school = new_name
+
+# Student.change_school("New School")
+# Endi barcha objectlarda school o‘zgaradi.
+
+
+# 3. Static method (@staticmethod)
+
+# Bu metod:
+# class atribut ishlatmaydi
+# instance atribut ishlatmaydi
+
+# Oddiy yordamchi funksiya, lekin class ichida turadi.
+
+# class MathUtils:
+
+#     @staticmethod
+#     def add(a, b):
+#         return a + b
+
+
+# Qachon qaysi biri ishlatiladi
+
+# Instance method → object ma’lumotlari bilan ishlasa
+# Class method → class darajasida o‘zgarish bo‘lsa
+# Static method → mantiqiy yordamchi funksiya bo‘lsa
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+# "Employee" nomli class yozing.
+
+# Class atribut:
+# company_name = "TechCorp"
+
+# Instance atribut:
+# name
+# salary
+
+# Metodlar:
+# info() → name, salary, company chiqaradi
+# @classmethod change_company(new_name)
+# @staticmethod is_valid_salary(amount)
+# → salary 0 dan katta bo‘lsa True qaytarsin
+
+
+
+# class Employee:
+#     company_name = "TechCorp"
+
+#     def __init__(self, name:str, salary:int):
+#         self.name = name 
+#         self.salary = salary
+
+
+#     def info(self):
+#         result = f"Name: {self.name}  Salary: {self.salary} Company: {Employee.company_name}"
+#         return result
+
+
+#     @classmethod
+#     def change_company(cls, new_name):
+#         cls.company_name = new_name
+        
+
+
+#     @staticmethod
+#     def is_valid_salary(amount):
+#         result = False
+
+#         if amount > 0:
+#             result = True
+        
+#         return result
+    
+
+# o1 = Employee("Abdurasul",5000)
+# o2 = Employee("Robiya",10)
+
+# Employee.change_company("Python")
+
+# print(o1.is_valid_salary(20))
+# print(o1.info())
+
+# print()
+
+# print(o2.is_valid_salary(-30))
+# print(o2.info())
