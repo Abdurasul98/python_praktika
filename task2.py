@@ -543,3 +543,157 @@
 
 # print(o2.is_valid_salary(-30))
 # print(o2.info())
+
+
+
+
+# 5-MAVZU: Encapsulation (Inkapsulyatsiya)
+
+# Bu OOPning eng muhim g‘oyalaridan biri.
+# Oddiy ma’nosi:
+# Object ichidagi ma’lumotni tashqaridan himoyalash
+
+
+# 1. Public atribut
+
+# Oddiy atribut — hamma joydan ochiq.
+
+# class User:
+#     def __init__(self, name):
+#         self.name = name
+
+
+# Tashqaridan:
+
+# u = User("Ali")
+# u.name = "Vali"
+
+
+# Hech qanday cheklov yo‘q.
+
+
+# 2. Protected atribut (_attribute)
+
+# Bu signal:
+# “Bu ichki atribut, tashqaridan tegma”
+
+# class User:
+#     def __init__(self, name):
+#         self._name = name
+
+
+# Tashqaridan kirish mumkin, lekin tavsiya etilmaydi.
+
+# u._name
+
+# Bu faqat OOP odobi (convention).
+
+# 3. Private atribut (__attribute)
+
+# Bu haqiqiy himoya.
+
+# class User:
+#     def __init__(self, name):
+#         self.__name = name
+
+# Tashqaridan:
+
+# u.__name
+# Xato beradi
+# Chunki Python uni yashiradi:
+# _User__name
+# ga o‘zgartiradi.
+
+
+# 4. Nega encapsulation kerak?
+
+# Masalan bank balans.
+
+# Agar public bo‘lsa:
+# acc.balance = -999999
+
+# Bu noto‘g‘ri.
+
+# Shuning uchun:
+
+# self.__balance
+
+# qilib yashiramiz.
+# Va nazorat bilan o‘zgartiramiz.
+
+
+# 5. Getter va Setter
+
+# Private atributga nazorat bilan kirish.
+
+# class Bank:
+#     def __init__(self, balance):
+#         self.__balance = balance
+
+#     def get_balance(self):
+#         return self.__balance
+
+#     def set_balance(self, amount):
+#         if amount >= 0:
+#             self.__balance = amount
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+# "BankAccount" class yozing.
+
+# Private atribut:
+
+# __balance
+
+# Metodlar:
+
+# deposit(amount) → qo‘shsin
+# withdraw(amount) → yetarli bo‘lsa ayirsin
+# get_balance() → balansni qaytarsin
+
+
+
+class BankAccount:
+    def __init__(self):
+        self.__balance = 0
+
+
+    def deposit(self,amount: float):
+        if amount <= 0:
+            print("Amount cannot be negative")
+        else:
+            self.__balance = self.__balance + amount
+            
+        return f"{self.__balance:.2f} $"
+
+
+    def withdraw(self,amount: float):
+        if amount <= 0:
+            print("Amount cannot be negative")
+        else:
+            if self.__balance >= amount:
+                self.__balance = self.__balance - amount
+            else:
+                print("Not enought balance")
+
+        return f"{amount:.2f} $"
+
+
+    def get_balance(self):
+        return f"{self.__balance:.2f} $"
+    
+
+o1 = BankAccount()
+
+print(o1.deposit(23.8))
+print(o1.withdraw(14.2))
+print(o1.get_balance())
+
+
+o1.__balance
