@@ -659,41 +659,345 @@
 
 
 
-class BankAccount:
-    def __init__(self):
-        self.__balance = 0
+# class BankAccount:
+#     def __init__(self):
+#         self.__balance = 0
 
 
-    def deposit(self,amount: float):
-        if amount <= 0:
-            print("Amount cannot be negative")
-        else:
-            self.__balance = self.__balance + amount
+#     def deposit(self,amount: float):
+#         if amount <= 0:
+#             print("Amount cannot be negative")
+#         else:
+#             self.__balance = self.__balance + amount
             
-        return f"{self.__balance:.2f} $"
+#         return f"{self.__balance:.2f} $"
 
 
-    def withdraw(self,amount: float):
-        if amount <= 0:
-            print("Amount cannot be negative")
-        else:
-            if self.__balance >= amount:
-                self.__balance = self.__balance - amount
-            else:
-                print("Not enought balance")
+#     def withdraw(self,amount: float):
+#         if amount <= 0:
+#             print("Amount cannot be negative")
+#         else:
+#             if self.__balance >= amount:
+#                 self.__balance = self.__balance - amount
+#             else:
+#                 print("Not enought balance")
 
-        return f"{amount:.2f} $"
+#         return f"{amount:.2f} $"
 
 
-    def get_balance(self):
-        return f"{self.__balance:.2f} $"
+#     def get_balance(self):
+#         return f"{self.__balance:.2f} $"
     
 
-o1 = BankAccount()
+# o1 = BankAccount()
 
-print(o1.deposit(23.8))
-print(o1.withdraw(14.2))
-print(o1.get_balance())
+# print(o1.deposit(23.8))
+# print(o1.withdraw(14.2))
+# print(o1.get_balance())
 
 
-o1.__balance
+# o1.__balance
+
+
+
+
+# 6-MAVZU: Magic (Dunder) metodlar
+
+# Magic metodlar — bu Python ichki ishlatadigan maxsus metodlar.
+
+# Ular har doim:
+# __nom__
+# ko‘rinishida bo‘ladi.
+
+# Masalan:
+
+# __init__
+# __str__
+# __len__
+# __add__
+
+
+# 1. __str__ — objectni chiroyli chiqarish
+
+# Agar classda __str__ bo‘lmasa:
+
+# print(obj)
+# chiqadi:
+# <__main__.Car object at 0x000...>
+# Yomon ko‘rinadi.
+
+# Agar __str__ yozsak:
+
+# class Car:
+#     def __init__(self, brand):
+#         self.brand = brand
+
+#     def __str__(self):
+#         return f"Car: {self.brand}"
+
+
+# Endi:
+
+# print(car1)
+# chiqadi:
+# Car: BMW
+
+# 2. __repr__ — developer uchun ko‘rinish
+
+# Bu objectni aniq tasvirlash.
+
+# def __repr__(self):
+#     return f"Car('{self.brand}')"
+
+# Console ichida object yozilsa ishlaydi.
+
+
+# 3. __len__ — len(obj) ishlatish
+
+# class Team:
+#     def __init__(self, members):
+#         self.members = members
+
+#     def __len__(self):
+#         return len(self.members)
+
+# Endi:
+# len(team)
+# ishlaydi.
+
+
+# 4. __add__ — objectlarni qo‘shish
+
+# class Money:
+#     def __init__(self, amount):
+#         self.amount = amount
+
+#     def __add__(self, other):
+#         return Money(self.amount + other.amount)
+
+# m1 + m2
+# ishlaydi.
+
+
+# 5. __eq__ — tenglik tekshirish
+
+# def __eq__(self, other):
+#     return self.amount == other.amount
+
+# m1 == m2
+
+# Eng muhim tushuncha
+
+# Magic metodlar =
+# Python operatorlarini o‘z classingga moslash
+
+# Masalan:
+
+# +  → __add__
+# == → __eq__
+# len → __len__
+# print → __str__
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+
+
+# class Book:
+#     def __init__(self,title:str, pages:int):
+#         self.title = title
+#         self.pages = pages
+
+
+#     def __str__(self):
+#         return f"Book: {self.title} ({self.pages} pages)"
+
+
+#     def __len__(self):
+#         return self.pages
+
+
+#     def __eq__(self, value):
+#         if self.pages == value.pages:
+#             return True
+#         else:
+#             return False
+
+
+# b1 = Book("Python", 300)
+# b2 = Book("Java", 300)
+
+# print(b1)
+# print(len(b1))
+# print(b1 == b2)
+
+
+
+
+
+# 7-MAVZU: Inheritance (Vorislik)
+
+# Inheritance — bu bir class boshqa classdan xususiyat va metodlarni meros olishi.
+
+# Real hayot:
+
+# Animal
+
+# Dog
+# Cat
+
+# Dog — Animaldan kelib chiqqan.
+
+
+# 1. Oddiy vorislik
+
+# class Animal:
+#     def speak(self):
+#         print("Animal sound")
+
+# class Dog(Animal):
+#     pass
+
+# Dog — Animaldan meros oldi.
+
+# Endi:
+
+# d = Dog()
+# d.speak()
+
+
+# ishlaydi 
+
+
+# 2. Voris class nima oladi?
+
+# Child class parentdan:
+# metodlar
+# atributlar
+
+# hammasini oladi.
+
+
+# 3. O‘z atribut qo‘shish
+
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+
+# class Dog(Animal):
+#     def __init__(self, name, breed):
+#         self.breed = breed
+
+
+# Lekin bu yerda xato bor 
+# Parent name yo‘qoladi.
+
+
+# 4. super() — parentni chaqirish
+
+# To‘g‘risi:
+
+# class Dog(Animal):
+#     def __init__(self, name, breed):
+#         super().__init__(name)
+#         self.breed = breed
+
+
+# super() → parent classga murojaat.
+
+
+
+# 5. Method override
+
+# Child class parent metodni o‘zgartirishi mumkin.
+
+# class Animal:
+#     def speak(self):
+#         print("Animal sound")
+
+# class Dog(Animal):
+#     def speak(self):
+#         print("Bark")
+
+
+# Endi:
+# Dog().speak()
+# → Bark
+
+
+# 6. Ko‘p darajali vorislik
+# class Animal:
+#     pass
+
+# class Mammal(Animal):
+#     pass
+
+# class Dog(Mammal):
+#     pass
+
+# Dog → Mammal → Animal
+
+
+# Muhim tushuncha
+
+# Inheritance =
+#  kodni qayta ishlatish
+#  umumiy xususiyatni parentga qo‘yish
+#  maxsusini childga qo‘yish
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+# "Vehicle" parent class yozing.
+
+# Atribut:
+# brand
+
+# Metod:
+# info() → "Brand: BMW"
+
+# "Car" child class yozing.
+
+# Qo‘shimcha atribut:
+# model
+
+# Override:
+# info() → "Brand: BMW, Model: X5"
+
+# Sinov
+# c = Car("BMW", "X5")
+# c.info()
+
+# Natija:
+
+# Brand: BMW, Model: X5
+
+
+
+# class Vehicle:
+#     def __init__(self,brand):
+#         self.brand = brand
+    
+#     def info(self):
+#         return f"Brand: {self.brand}"
+    
+# class Car(Vehicle):
+#     def __init__(self,brand,model):
+#         super().__init__(brand)
+#         self.model = model
+
+#     def info(self):
+#         return f" Brand: {self.brand}, Model: {self.model}"
+    
+
+# o1 = Car("BMW", "M3")
+# print(o1.info())

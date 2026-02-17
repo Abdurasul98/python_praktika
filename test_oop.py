@@ -327,3 +327,196 @@
 # print(o1.info())
 # print(o2.info())
 # print(o3.info())
+
+
+
+
+# class Student:
+#     school_name = "Python Academy"
+
+#     def __init__(self, name: str, age: int, list_grade: list):
+#         self.name = name
+#         self.age = age
+#         self.__list_grade = list_grade
+
+
+#     def add_grade(self,grade: int):
+#         if isinstance(grade,int) and 0 <= grade <=5:
+#             self.__list_grade.append(grade)
+#         else:
+#             print("Grade cannot be negative")
+
+#     def average(self):
+#         length_list = 0
+#         sum_value = 0
+
+#         for value in self.__list_grade:
+#             length_list +=1
+#             sum_value += value
+        
+#         result = sum_value // length_list
+#         return result
+
+
+#     def info(self):
+#         result = f""" 
+# Name: {self.name}
+# Age: {self.age}
+# Grade: {self.get_grade()}
+# School: {self.school_name}
+# """
+#         return result
+
+
+#     def get_grade(self):
+#         return self.__list_grade
+
+#     @classmethod
+#     def change_school_name(cls,new_name):
+#         cls.school_name = new_name
+
+
+# s1 = Student("Ali",20 , [4,5,3])
+# s1.add_grade(5)
+
+# print(s1.average())
+# print(s1.info())
+
+# Student.change_school_name("Najot Ta'lim")
+# print(s1.info())
+
+
+
+# class BankAccount:
+#     bank_name = "Python Bank"
+
+#     def __init__(self, owner_name: str, account_number: str, balance):
+#         if isinstance(owner_name,str) and len(owner_name) > 0:
+#             self.owner_name = owner_name
+#         else:
+#             self.owner_name = None
+
+
+#         if isinstance(account_number,str) and len(account_number) == 8 and account_number.isdigit():
+#             self.__account_number = account_number
+#         else:
+#             self.__account_number = None
+
+        
+#         if isinstance(balance,(int,float)) and balance >= 0:
+#             self.__balance = balance
+#         else:
+#             self.__balance = 0.0
+
+
+#     def deposit(self,amount):
+#         if isinstance(amount, (int,float)) and amount > 0:
+#             self.__balance += amount
+#         else:
+#             print("Another data type or amount cannot be negative")
+
+
+#     def withdraw(self,amount):
+#         if isinstance(amount, (int,float)) and amount > 0:
+#             if amount <= self.__balance:
+#                 self.__balance -= amount
+#             else:
+#                 print("Insufficient funds")
+#         else:
+#             print("Another data type or amount cannot be negative")
+
+    
+#     def get_balance(self):
+#         return self.__balance
+    
+
+#     def info(self):
+#         result = f"""
+# Owner: {self.owner_name}
+# Account: {self.__account_number}
+# Balance: {self.get_balance()}
+# Bank: {self.bank_name}
+# """
+#         return result
+    
+#     @classmethod
+#     def change_bank_name(cls,new_name):
+#         if isinstance(new_name, str) and len(new_name) > 0:
+#             cls.bank_name = new_name
+#         else:
+#             print("Another data type or bank name must be non-empty string")
+
+
+# acc = BankAccount("Ali", "12345678", 1000)
+
+# acc.deposit(500)
+# acc.withdraw(200)
+
+# print(acc.get_balance())
+# print(acc.info())
+
+# BankAccount.change_bank_name("IT Bank")
+# print(acc.info())
+
+
+
+
+# class Book:
+#     def __init__(self,title, author,pages):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+    
+#     def __str__(self):
+#         return f"Book: {self.title} by {self.author} ({self.pages} pages)"
+    
+
+#     def __repr__(self):
+#         return f"Book('{self.title}', {self.author}, {self.pages})"
+    
+    
+
+# o1 = Book("Atomic Habits","James Clear",320)
+
+# print(o1)
+# print(repr(o1))
+
+
+
+
+# class PlayList:
+#     def __init__(self,songs: list):
+#         self.songs = songs
+
+
+#     def __len__(self,other_list: list):
+#         count = 0
+
+#         for _ in other_list:
+#             count += 1
+
+#         return count 
+
+# print(len(["python",'c','bruno mars']))
+
+
+
+# class Vector2D:
+#     def __init__(self, x: int, y: int):
+#         self.x = x
+#         self.y = y
+
+    
+#     def __add__(self,other):
+#         return Vector2D(self.x + other.x,self.y + other.y)
+    
+    
+#     def __str__(self):
+#         return f"{self.x} {self.y}"
+    
+# o1 = Vector2D(5,9)
+# o2 = Vector2D(3,1)
+
+# o3 = o1+o2
+# print(o3)
