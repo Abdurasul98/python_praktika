@@ -1001,3 +1001,327 @@
 
 # o1 = Car("BMW", "M3")
 # print(o1.info())
+
+
+
+
+
+# 8-MAVZU: Multiple Inheritance
+
+# Bu — bitta class bir nechta parentdan meros olishi.
+
+
+# 1. Asosiy sintaksis
+
+# class A:
+#     pass
+
+# class B:
+#     pass
+
+# class C(A, B):
+#     pass
+
+# C → A va B dan meros oladi.
+
+
+
+# 2. Real misol
+
+# class Flyable:
+#     def fly(self):
+#         print("Flying")
+
+# class Swimmable:
+#     def swim(self):
+#         print("Swimming")
+
+# class Duck(Flyable, Swimmable):
+#     pass
+
+
+# d = Duck()
+# d.fly()
+# d.swim()
+
+# Ikkalasi ham ishlaydi
+
+
+# 3. Constructorlarda multiple inheritance
+
+# class A:
+#     def __init__(self):
+#         print("A")
+
+# class B:
+#     def __init__(self):
+#         print("B")
+
+# class C(A, B):
+#     def __init__(self):
+#         super().__init__()
+
+
+# Savol: qaysi ishlaydi?
+
+# Javob: A
+
+# Chunki Python MRO bo‘yicha yuradi.
+
+
+# 4. MRO (Method Resolution Order)
+
+# Python metodni qaysi classdan olishni tartib bilan aniqlaydi.
+
+# Tartib:
+# C → A → B → object
+# print(C.mro())
+
+
+# 5. Nega muhim?
+
+# Agar 2 parentda bir xil metod bo‘lsa:
+
+# class A:
+#     def hello(self):
+#         print("A")
+
+# class B:
+#     def hello(self):
+#         print("B")
+
+# class C(A, B):
+#     pass
+
+# C().hello()
+
+# → A
+# Chunki MROda A oldin.
+
+
+# Muhim tushuncha
+
+# Multiple inheritance ishlatiladi:
+# bir nechta xususiyat birlashtirishda
+# mixin classlarda
+# rol qo‘shishda
+
+# Masalan:
+
+# class LoggerMixin
+# class SaveMixin
+# class User(LoggerMixin, SaveMixin)
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+# 2 ta parent class yozing:
+
+# Engine
+
+# metod:
+# start() → "Engine started"
+
+# MusicSystem
+
+# metod:
+# play_music() → "Music playing"
+
+# Child class:
+
+# Car
+
+# → Engine va MusicSystem dan meros olsin
+
+# Sinov
+# c = Car()
+# c.start()
+# c.play_music()
+
+
+
+# class Engine:
+#     def start(self):
+#         print("Engine started")
+
+
+# class MusicSystem:
+#     def play_music(self):
+#         print("Music playing")
+
+
+# class Car(Engine,MusicSystem):
+#     pass
+
+# o1 = Car()
+# o1.start()
+# o1.play_music()
+
+
+
+
+# 9-MAVZU: Polymorphism (Polimorfizm)
+
+# Polymorphism — bu bir xil metod nomi, turli xatti-harakat.
+
+# Oddiy ma’no:
+#  bir xil chaqirish
+#  turli natija
+
+
+# 1. Override orqali polymorphism
+
+# class Animal:
+#     def speak(self):
+#         print("Animal sound")
+
+# class Dog(Animal):
+#     def speak(self):
+#         print("Bark")
+
+# class Cat(Animal):
+#     def speak(self):
+#         print("Meow")
+
+
+# Endi:
+# animals = [Dog(), Cat()]
+# for a in animals:
+#     a.speak()
+
+
+# Natija:
+# Bark
+# Meow
+# Bir xil metod → turli natija
+
+
+# 2. Polymorphismning kuchi
+
+# Bizga bilish shart emas:
+# bu Dogmi
+# Catmi
+
+# Faqat:
+# obj.speak()
+# desak yetadi.
+
+
+# 3. Duck typing
+
+# Python g‘oyasi:
+#  agar yurishi o‘rdakka o‘xshasa
+#  ovozi o‘rdakka o‘xshasa
+#  demak o‘rdak
+
+# Ya’ni tur emas, xatti-harakat muhim.
+
+# class Car:
+#     def move(self):
+#         print("Driving")
+
+# class Boat:
+#     def move(self):
+#         print("Sailing")
+
+
+# for v in [Car(), Boat()]:
+#     v.move()
+
+
+# Python turini tekshirmaydi.
+# Metod bor — ishlatadi.
+
+
+# 4. Real OOPda polymorphism
+
+# Ko‘p ishlatiladi:
+
+# render()
+# save()
+# draw()
+# calculate()
+# process()
+
+# Har class o‘zcha bajaradi.
+
+
+# Muhim tushuncha
+
+# Polymorphism =
+#  umumiy interfeys
+#  turli implementatsiya
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+# Parent class:
+
+# Shape
+
+# metod:
+
+# area() → 0 qaytarsin
+
+# Child classlar:
+
+# Rectangle
+# width
+# height
+# area() → width * height
+
+# Circle
+# radius
+# area() → 3.14 * r²
+
+
+
+# shapes = [Rectangle(4,5), Circle(3)]
+
+# for s in shapes:
+#     print(s.area())
+
+
+# 20
+# 28.26
+
+
+
+
+class Shape:
+    def area(self):
+        return 0
+    
+class Rectangle(Shape):
+    def __init__(self,width,height):
+        self.width = width
+        self.height = height
+
+
+    def area(self):
+        return self.width * self.height
+    
+
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius = radius
+
+    
+    def area(self):
+        return 3.14 * (self.radius ** 2)
+    
+
+shapes = [Rectangle(4,5),Circle(3)]
+
+for i in shapes:
+    print(i.area())
