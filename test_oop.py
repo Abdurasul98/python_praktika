@@ -520,3 +520,191 @@
 
 # o3 = o1+o2
 # print(o3)
+
+
+
+# class Employee:
+#     def __init__(self,name,salary):
+#         self.name = name
+#         self.salary = salary
+
+
+#     def get_info(self):
+#         print(f"Name: {self.name}, Salary: {self.salary}")
+
+
+
+# class Manager(Employee):
+#     def __init__(self,name,salary,bonus):
+#         super().__init__(name,salary)
+#         self.bonus = bonus
+
+    
+#     def get_info(self):
+#         print(f"Name: {self.name}, Salary: {self.salary}, Bonus: {self.bonus}")
+
+
+
+# o1 = Manager("Abdurasul",1000,400)
+# o1.get_info()
+
+
+
+# class Vehicle:
+#     def __init__(self,brand,speed):
+#         self.brand = brand
+#         self.speed = speed
+
+
+# class Car(Vehicle):
+#     def __init__(self,brand,speed,fuel_type):
+#         super().__init__(brand,speed)
+#         self.fuel_type = fuel_type
+
+    
+# o1 = Car("BMW",240,"Oil")
+
+# print(o1.brand)
+# print(o1.speed)
+# print(o1.fuel_type)
+
+
+
+# class Animal:
+#     def __init__(self,name):
+#         self.name = name
+
+# class Mammal(Animal):
+#     def __init__(self,name):
+#         super().__init__(name)
+#         self.has_fur = True
+
+# class Dog(Mammal):
+#     def __init__(self,name,breed):
+#         super().__init__(name)
+#         self.breed = breed
+        
+
+
+# o1 = Dog("Name","Rex")
+
+# print(o1.name)
+# print(o1.has_fur)
+# print(o1.breed)
+
+
+
+# class Flyer:
+#     def fly(self):
+#         print("Flying")
+
+
+# class Swimmer:
+#     def swim(self):
+#         print("Swimming")
+
+
+# class Duck (Flyer,Swimmer):
+#     pass
+
+
+# o1 = Duck()
+# o1.fly()
+# o1.swim()
+
+
+
+
+# class Cat:
+#     def speak(self):
+#         return "Meow"
+
+# class Dog:
+#     def speak(self):
+#         return "Bark"
+    
+# o1 = [Cat(),Dog()]
+
+# for i in o1:
+#     print(i.speak())
+
+
+
+
+# class Bird:
+#     def fly(self):
+#         return "Bird fly"
+
+
+# class Airplane:
+#     def fly(self):
+#         return "Airplane fly"
+    
+# o1 = [Bird(),Airplane()]
+
+
+# def make_fly(obj:list):
+#     for i in obj:
+#         print(i.fly())
+
+
+# make_fly(o1)
+
+
+# from abc import ABC , abstractmethod
+# class Shape(ABC):
+
+#     @abstractmethod
+#     def area(self):
+#         pass
+
+
+# class Rectangle(Shape):
+#     def __init__(self,width: int,height: int):
+#         self.width = width
+#         self.height = height
+
+#     def area(self):
+#         return self.height * self.width
+    
+
+# o1 = Rectangle(3,9)
+
+# print(o1.area())
+
+
+
+# from abc import abstractmethod, ABC
+# class Payment(ABC):
+
+#     @abstractmethod
+#     def pay(self):
+#         pass
+
+
+# class CardPayment(Payment):
+    
+    
+#     def pay(self):
+#         return "Paid X by card"
+
+
+# class CashPayment(Payment):
+    
+    
+#     def pay(self):
+#         return "Paid X by cash"
+    
+
+
+
+# o1 = [CardPayment(),CashPayment()]
+
+
+# def class_run(obj:list):
+
+#     for i in obj:
+#         print(i.pay())
+
+
+# class_run(o1)

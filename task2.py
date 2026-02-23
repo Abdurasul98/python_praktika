@@ -1298,30 +1298,469 @@
 
 
 
-class Shape:
-    def area(self):
-        return 0
+# class Shape:
+#     def area(self):
+#         return 0
     
-class Rectangle(Shape):
-    def __init__(self,width,height):
-        self.width = width
-        self.height = height
+# class Rectangle(Shape):
+#     def __init__(self,width,height):
+#         self.width = width
+#         self.height = height
 
 
-    def area(self):
-        return self.width * self.height
-    
-
-class Circle(Shape):
-    def __init__(self,radius):
-        self.radius = radius
-
-    
-    def area(self):
-        return 3.14 * (self.radius ** 2)
+#     def area(self):
+#         return self.width * self.height
     
 
-shapes = [Rectangle(4,5),Circle(3)]
+# class Circle(Shape):
+#     def __init__(self,radius):
+#         self.radius = radius
 
-for i in shapes:
-    print(i.area())
+    
+#     def area(self):
+#         return 3.14 * (self.radius ** 2)
+    
+
+# shapes = [Rectangle(4,5),Circle(3)]
+
+# for i in shapes:
+#     print(i.area())
+
+
+
+
+
+# 10-MAVZU: Abstraction (Abstraksiya)
+
+# Abstraction — bu faqat kerakli metod va atributlarni ko‘rsatish, ichki tafsilotlarni yashirish konsepsiyasi.
+
+
+# 1. Nega kerak?
+
+# Katta loyihada faqat interfeys bilan ishlaymiz
+# Ichki ishlarni ko‘rish shart emas
+# Kodni xavfsiz va tartibli qiladi
+
+
+
+# 2. abc moduli
+
+# Pythonda abstraction uchun abc moduli ishlatiladi.
+
+# ABC — abstract base class
+# @abstractmethod — majburiy metod
+
+# from abc import ABC, abstractmethod
+# class Shape(ABC):
+#     @abstractmethod
+#     def area(self):
+#         pass
+
+# Endi Shapedan to‘g‘ridan-to‘g‘ri object yarata olmaysiz:
+
+# s = Shape()  # Xato
+
+
+# 3. Child classda implementatsiya qilish
+# class Rectangle(Shape):
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def area(self):
+#         return self.width * self.height
+
+
+# Endi:
+
+# r = Rectangle(3,4)
+# print(r.area())  # 12
+
+
+# 4. Muhim tushuncha
+
+# Abstraction = faqat metod nomi bilan ishlash
+# Ichki tafsilot child classda implementatsiya qilinadi
+# Katta tizimlarda interfeyslarni aniqlash uchun ishlatiladi
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+# Parent abstract class:
+
+# Employee
+# abstract method: calculate_salary()
+
+# Child classlar:
+# FullTimeEmployee
+
+# monthly_salary
+# calculate_salary() → monthly_salary qaytaradi
+
+# PartTimeEmployee
+
+# hourly_rate, hours
+# calculate_salary() → hourly_rate * hours
+
+# Sinov
+# emps = [FullTimeEmployee(3000), PartTimeEmployee(20, 100)]
+
+# for e in emps:
+#     print(e.calculate_salary())
+
+
+
+
+# from abc import ABC,abstractmethod
+# class Employee(ABC):
+
+#     @abstractmethod
+#     def calculate_salary(self):
+#         pass
+
+# class FullTimeEmployee(Employee):
+
+#     def __init__(self, monthly_salary):
+#         self.monthly_salary = monthly_salary
+
+
+#     def calculate_salary(self):
+#         return self.monthly_salary
+    
+# class PartTimeEmployee(Employee):
+
+#     def __init__(self,hourly_rate,hours):
+#         self.hours = hours
+#         self.hourly_rate = hourly_rate
+
+    
+#     def calculate_salary(self):
+#         return self.hourly_rate * self.hours
+    
+
+# o1 = [FullTimeEmployee(3000), PartTimeEmployee(20,100)]
+
+# for i in o1:
+#     print(i.calculate_salary())
+
+
+
+
+
+
+# 11-MAVZU: Composition va Aggregation
+
+# Bu mavzuda object ichida boshqa object ishlatish tushunchasi.
+
+# OOPda 2 xil munosabat bor:
+
+# is-a → vorislik (Car is a Vehicle)
+# has-a → composition/aggregation (Car has an Engine)
+
+
+# 1. Composition
+
+# Composition — bu kuchli bog‘lanish.
+
+#  ichki object parentga tegishli
+#  alohida yashamaydi
+
+# Misol:
+# class Engine:
+#     def start(self):
+#         print("Engine started")
+
+# class Car:
+#     def __init__(self):
+#         self.engine = Engine()
+
+# Car yo‘q bo‘lsa → engine ham yo‘q.
+
+
+# 2. Aggregation
+
+# Aggregation — zaif bog‘lanish.
+
+#  object tashqarida yaratiladi
+#  keyin beriladi
+
+# class Engine:
+#     def start(self):
+#         print("Engine started")
+
+# class Car:
+#     def __init__(self, engine):
+#         self.engine = engine
+
+# e = Engine()
+# c = Car(e)
+
+# Engine alohida mavjud.
+
+
+# 3. Farqni oddiy tushun
+
+# Composition:
+
+# Car ichida Engine yaratiladi
+
+# Aggregation:
+
+# Engine tashqarida yaratiladi
+# Car ga beriladi
+
+
+# 4. Qachon qaysi biri?
+
+# Composition:
+
+# ichki qism bo‘lsa
+# ajralmas bo‘lsa
+# faqat shu classga tegishli
+
+# Aggregation:
+
+# umumiy resurs bo‘lsa
+# bir nechta class ishlatsa
+# alohida mavjud bo‘lsa
+
+
+# 5. Real OOPda juda muhim
+
+# Ko‘p tizimlar:
+
+# Order has Products
+# Team has Players
+# University has Students
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+
+# Class:
+
+# Author
+
+# name
+
+# Composition:
+
+# Book
+
+# title
+# author → ichida yaratiladi
+
+# Aggregation:
+
+# Library
+
+# name
+# books → tashqaridan beriladi (list)
+
+# Sinov
+# b1 = Book("Python")
+# b2 = Book("Java")
+
+# lib = Library("City Library", [b1, b2])
+
+# Library ichida 2 ta book bor.
+
+
+# class Author:
+#     def __init__(self, name:str):
+#         self.name = name
+
+
+# class Book:
+#     def __init__(self,title:str):
+#         self.title = title
+#         self.author = Author("Abdurasul")
+
+
+# class Library:
+#     def __init__(self,name:str,books:list):
+#         self.name = name
+#         self.books = books
+
+
+
+# b1 = Book("Python")
+# b2 = Book("Java")
+
+# lib = Library("CIty Library",[b1,b2])
+
+
+# for book in lib.books:
+#     print(book.title)
+
+
+
+# 12-MAVZU: @property dekoratori
+
+# Bu — encapsulationni professional usulda qilish vositasi.
+
+# Ya’ni:
+
+#  metod orqali nazorat
+#  lekin tashqaridan atributdek ko‘rinadi
+
+
+# 1. Muammo (oddiy getter/setter)
+
+# Oldin shunday qilardik:
+# class Person:
+#     def __init__(self, age):
+#         self.__age = age
+
+#     def get_age(self):
+#         return self.__age
+
+#     def set_age(self, value):
+#         if value >= 0:
+#             self.__age = value
+
+
+# Foydalanish:
+
+# p.get_age()
+# p.set_age(20)
+
+# Bu — Java uslubiga o‘xshaydi.
+
+# Pythonic emas.
+
+
+# 2. @property — getterni atributga aylantiradi
+
+# class Person:
+#     def __init__(self, age):
+#         self.__age = age
+
+#     @property
+#     def age(self):
+#         return self.__age
+
+
+# p.age
+
+# Metod chaqirilmaydi, atributdek ishlaydi
+
+
+# 3. Setter qo‘shish
+
+# class Person:
+#     def __init__(self, age):
+#         self.__age = age
+
+#     @property
+#     def age(self):
+#         return self.__age
+
+#     @age.setter
+#     def age(self, value):
+#         if value >= 0:
+#             self.__age = value
+
+# endi
+# p.age = 25
+# Nazorat bilan o‘zgartiriladi
+
+
+# 4. Nega muhim?
+
+# Tashqaridan:
+# p.age
+# p.age = 30
+
+# Ichkarida:
+# validatsiya
+# nazorat
+# encapsulation
+
+# Professional OOP
+
+
+# 5. Deleter ham bor (property ni methodlaridan biri yani property ni ham methodi bor)
+# @age.deleter
+# def age(self):
+#     del self.__age
+
+# Kam ishlatiladi, lekin mavjud.
+
+# Muhim tushuncha
+
+# @property =
+#  metodni atributdek ko‘rsatish
+#  encapsulationni chiroyli qilish
+
+
+
+# --------------------------------------------------------------------
+
+# Amaliy masala
+
+
+# Shart:
+
+# Product
+
+# Private atribut:
+# __price
+
+# Property:
+# price → qaytarsin
+
+# Setter:
+# price(value)
+# value > 0 bo‘lsa o‘zgarsin
+# aks holda o‘zgarmasin
+
+
+# p = Product(100)
+
+# print(p.price)
+# p.price = 200
+# print(p.price)
+
+# p.price = -50
+# print(p.price)
+
+
+
+
+# class Product:
+#     def __init__(self,price: float):
+#         self.__price = price
+
+#     @property
+#     def price(self):
+#         return self.__price
+    
+#     @price.setter
+#     def price(self, value):
+#         if value > 0:
+#             self.__price = value
+        
+
+
+
+# p = Product(100)
+
+# print(p.price)
+
+# p.price = 200
+# print(p.price)
+
+# p.price = -50
+# print(p.price)
+
