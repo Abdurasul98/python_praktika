@@ -2144,3 +2144,343 @@
 # o2.better_book(o3)
 
 
+
+
+
+# my_list = [1,2,3]
+
+
+# def natija(n:list)-> list:
+#     result = list()
+
+#     my_str = ""
+
+#     for i in n:
+#         my_str += str(i)
+    
+#     temp = str(int(my_str) +1)
+    
+#     for i in temp:
+#         result.append(int(i))
+    
+#     return result
+
+# print(natija(my_list))
+
+
+
+
+
+# my_list = ["flower","flow","flight"]
+
+
+# class Solution:
+#     def longestCommonPrefix(self, strs):
+#         prefix = str()
+
+#         for i in range(len(strs[0])):
+#             ch = strs[0][i]
+
+#             for word in strs:
+#                 if i >= len(word) or word[i] != ch:
+#                     return prefix
+
+#             prefix += ch
+
+#         return prefix
+
+
+# -------------------------------------------------------------------------------------
+# Masala 1 — “Smart Phone Profil”
+
+# Sizdan SmartPhone klassini yaratishingiz so‘raladi:
+
+# Klass atributlari:
+# total_phones — barcha yaratilgan SmartPhone obyektlar sonini saqlaydi (class variable).
+
+# Instance atributlari (shaxsiy ma’lumotlar):
+# _brand (private) — telefon brendi
+# _model (private) — telefon modeli
+# price — telefon narxi
+
+# Encapsulation:
+# brand va model uchun getter va setter yaratish (Property dekoratori orqali).
+# Setter’da tekshirish: price 0 dan kichik bo‘lmasligi kerak.
+
+# Instance metodi:
+# phone_info() — telefon haqidagi barcha ma’lumotni o‘qish uchun.
+
+# Class metodi:
+# total_phones_created() — barcha yaratilgan telefonlar sonini qaytaradi.
+
+# Magic metod (str):
+# Telefonni print qilganda “Brand: {brand}, Model: {model}, Price: {price}” ko‘rinishi chiqsin.
+
+# Test qilish:
+# 2-3 telefon obyektini yarating.
+# Narxni o‘zgartiring, getter orqali brend va modelni o‘qib ko‘ring.
+# total_phones_created() chaqirib, umumiy sonini ko‘ring.
+# Telefon obyektini print qiling (str ishlashini tekshirish).
+# -------------------------------------------------------------------------------------
+
+
+# class SmartPhone:
+#     total_phones = 0
+
+#     def __init__(self,brand,model,price):
+#         self._brand = brand
+#         self._model = model
+#         self._price = price
+
+#         SmartPhone.total_phones += 1
+
+#     @property
+#     def brand_model(self):
+#         return f"Brand: {self._brand} Model: {self._model}"
+    
+#     @brand_model.setter
+#     def brand_model(self,value):
+#         if isinstance(value,tuple) and len(value) == 2:
+#             self._brand , self._model = value
+#         else:
+#             print('Setter uchun tupleda yoziladi faqat 2 ta qiymat')
+
+
+#     @property
+#     def price(self):
+#         return self._price
+    
+#     @price.setter
+#     def price(self,value):
+#         if value < 0:
+#             print("Price 0 dan katta bo'lish kerak")
+#         else:
+#             self._price = value
+
+#     def phone_info(self):
+#         result = f"""
+# Brand: {self._brand}
+# Model: {self._model}
+# Price: {self.price}
+# """
+#         return result
+    
+#     @classmethod
+#     def total_phones_created(cls):
+#         return cls.total_phones
+    
+
+#     def __str__(self):
+#         return self.phone_info()
+
+
+
+# o1 = SmartPhone("BMW","GTR",2026)
+# o2 = SmartPhone("BMW","M3",2025)
+# o3 = SmartPhone("BMW","M5",2024)
+
+
+# print(SmartPhone.total_phones_created())
+
+# print(o1)
+# print(o2)
+# print(o3)
+
+# o1.brand_model = ("bwm","M4")
+# print(o1)
+
+# o2.price = -500
+# print(o2)
+
+
+# -------------------------------------------------------------------------------------
+# Masala 2 — “Smart Devices Family”
+
+# Sizdan quyidagi vazifani bajarish so‘raladi:
+
+# Base klass yaratish: Device
+# Instance atributlar: _brand (private), _model (private), _price
+# Getter va setter orqali brand, model va price uchun encapsulation qilinsin.
+# Instance metodi: device_info() — barcha ma’lumotni qaytaradi.
+
+# Subclass yaratish: SmartPhone va SmartWatch
+# SmartPhone — telefonlar uchun, qo‘shimcha atribut: camera_megapixels
+# SmartWatch — soatlar uchun, qo‘shimcha atribut: heart_rate_monitor (True/False)
+# Har bir subclass device_info() metodini override qilib, qo‘shimcha atributni ham chiqaradi.
+
+# Polymorphism
+
+# Bir nechta Device obyektlari (telefon va soat) ro‘yxatga joylashtiriladi.
+# Bir loop orqali barcha obyektlar uchun device_info() chaqiriladi (method override ishlashini ko‘rsatadi).
+
+# Class atribut
+# Device klassida total_devices — barcha qurilmalar sonini hisoblaydi (class variable).
+# -------------------------------------------------------------------------------------
+
+
+# class Device:
+#     total_devices = 0
+
+#     def __init__(self,brand:str,model:str,price: float|int):
+#         self.__brand = brand
+#         self.__model = model
+#         self.__price = price
+
+#         Device.total_devices += 1
+
+
+#     @property
+#     def brand(self):
+#         return self.__brand
+    
+#     @brand.setter
+#     def brand(self,value:str):
+#         if isinstance(value,str) and value != '':
+#             self.__brand = value
+#         else:
+#             print("Faqat matn va bosh bolish taqiqlanadi")
+    
+
+#     @property
+#     def model(self):
+#         return self.__model
+    
+#     @model.setter
+#     def model(self,value:str):
+#         if isinstance(value,str) and  value != '':
+#             self.__model = value
+#         else:
+#             print("Faqat matn va bosh bolish taqiqlanadi")
+
+
+#     @property
+#     def price(self):
+#         return self.__price
+    
+#     @price.setter
+#     def price(self,value):
+#         if isinstance(value,(float,int)) and value > 0:
+#             self.__price = value
+#         else:
+#             print("Qiymat musbat bolish kerak va noldan katta bolish kerak")
+
+
+#     def device_info(self):
+#         result = f"""
+# Brand: {self.brand}
+# Model: {self.model}
+# Price: {self.price}
+# """
+#         return result
+    
+
+
+# class SmartPhone(Device):
+#     def __init__(self,brand,model,price,camera_megapixels):
+#         super().__init__(brand,model,price)
+#         self.camera_megapixels = camera_megapixels
+
+#     def device_info(self):
+#         result = f"""
+# {super().device_info()}
+# Camera megapixels: {self.camera_megapixels}
+# """
+#         return result
+    
+
+
+# class SmartWatch(Device):
+#     def __init__(self,brand,model,price,heart_rate_monitor):
+#         super().__init__(brand,model,price)
+#         self.heart_rate_monitor = heart_rate_monitor
+    
+#     def device_info(self):
+#         result = f"""
+# Brand: {self.brand}
+# Model: {self.model}
+# Price: {self.price}
+# Heart rate monitor: {self.heart_rate_monitor}
+# """
+#         return result
+    
+# o1 = SmartPhone("Samsung", "Galaxy S24", 1100, 50)
+# o2 = SmartPhone("Samsung", "Galaxy S21", 800, 30)
+# o3 = SmartWatch("Samsung","Galaxy WORLD WACHT-2",300,True)
+# o4 = SmartWatch("Samsung","Galaxy WORLD WACHT-1",200,False)
+
+# my_list = [o1,o2,o3,o4]
+
+
+# for i in my_list:
+#     print(i.device_info())
+
+# print("Device total:",Device.total_devices)
+
+
+
+
+
+
+
+# 1 global
+# 2 local
+# 3 nonlocal
+# 4 closure
+
+
+
+
+
+
+# x = 10
+
+# def outer():
+#     x = 20
+    
+#     def inner():
+#         x = 30
+#         print("inner:", x)
+    
+#     inner()
+#     print("outer:", x)
+
+# outer()
+# print("global:", x)
+
+
+
+
+
+
+# x = 10 
+
+# def outer():
+#     x = 20
+
+#     def inner():
+#         x = 30
+#         print(x)
+
+#     inner()
+
+# outer()
+
+
+
+
+
+# x = 5
+
+# def outer():
+#     x = 10
+
+#     def inner():
+#         nonlocal x
+#         x = 20
+#         print(x)
+    
+#     inner()
+#     print(x)
+
+# outer()
+# print(x)
