@@ -2484,3 +2484,136 @@
 
 # outer()
 # print(x)
+
+
+
+# def my_decorator(func):
+#     def wrapper(*args, **kwargs):
+        
+#         func(*args, **kwargs)
+        
+#     return wrapper
+
+
+# @my_decorator
+# def test():
+#     x = 1
+
+#     return x
+
+
+
+
+
+# import time
+
+# def my_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         start = time.time()
+
+#         func(*args, **kwargs)
+
+#         end = time.time()
+#         result = end - start
+#         print(f"{result:.10f}")
+
+#     return wrapper
+
+
+# @my_decorator
+# def salom():
+#     print("selloo")
+
+# salom()
+
+
+
+# counter = 0
+
+# def my_decotarot(func):
+#     def wrapper(*args, **kwargs):
+#         global counter
+#         counter += 1
+#         result = func(*args, **kwargs)
+#         return f"Funksiya {counter} marta chaqirildi. Funksiya natijasi: {result}"
+#     return wrapper
+
+
+
+# @my_decotarot
+# def salom():
+#     return "Salom"
+
+
+# print(salom())
+# print(salom())
+# print(salom())
+# print(salom())
+# print(salom())
+
+
+
+
+# def kvadrat(func):
+#     def wrapper(*args, **kwargs):
+#         results = func(*args, **kwargs)
+#         for i in results:
+#             result = i ** 2
+#         return result
+#     return wrapper
+
+
+
+# a = 4
+
+# @kvadrat
+# def son(x):
+#     return x
+
+# result = son(a)
+# print(result)
+
+
+
+
+
+
+def validate_name(func):
+    def wrapper(*args, **kwargs):
+        func(*args, **kwargs)
+        if len(args) != 2:
+            raise ValueError("Faqat 2 ta qiymat")
+        
+        a = args[0]
+        b = args[1]
+
+        if not isinstance(b,str):
+            raise ValueError("Faqat matndan iborat qiymat bolsin")
+        
+        if b[0].islower():
+            b = b.capitalize()
+            
+        return func(a,b)
+
+
+            
+    return wrapper
+
+a1 = 1
+b1 = "abdurasul"
+print(f"A: {a1} \nB: {b1}")
+print()
+
+
+
+@validate_name
+def test(a:int,b:str):
+    temp = 27
+
+    if a <= temp:
+        a = 27
+    return f"A: {a} \nB: {b}"
+
+
+result = test(a1,b1)
+print(result)
