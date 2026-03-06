@@ -2576,44 +2576,130 @@
 
 
 
-
-
-def validate_name(func):
-    def wrapper(*args, **kwargs):
-        func(*args, **kwargs)
-        if len(args) != 2:
-            raise ValueError("Faqat 2 ta qiymat")
+# def validate_name(func):
+#     def wrapper(*args, **kwargs):
+#         func(*args, **kwargs)
+#         if len(args) != 2:
+#             raise ValueError("Faqat 2 ta qiymat")
         
-        a = args[0]
-        b = args[1]
+#         a = args[0]
+#         b = args[1]
 
-        if not isinstance(b,str):
-            raise ValueError("Faqat matndan iborat qiymat bolsin")
+#         if not isinstance(b,str):
+#             raise ValueError("Faqat matndan iborat qiymat bolsin")
         
-        if b[0].islower():
-            b = b.capitalize()
+#         if b[0].islower():
+#             b = b.capitalize()
             
-        return func(a,b)
+#         return func(a,b)
 
 
             
-    return wrapper
+#     return wrapper
 
-a1 = 1
-b1 = "abdurasul"
-print(f"A: {a1} \nB: {b1}")
-print()
-
-
-
-@validate_name
-def test(a:int,b:str):
-    temp = 27
-
-    if a <= temp:
-        a = 27
-    return f"A: {a} \nB: {b}"
+# a1 = 1
+# b1 = "abdurasul"
+# print(f"A: {a1} \nB: {b1}")
+# print()
 
 
-result = test(a1,b1)
-print(result)
+
+# @validate_name
+# def test(a:int,b:str):
+#     temp = 27
+
+#     if a <= temp:
+#         a = 27
+#     return f"A: {a} \nB: {b}"
+
+
+# result = test(a1,b1)
+# print(result)
+
+
+
+
+
+
+# 1 Mutable va Imutable   (O'zgaruvchan va O'zgarmas)
+# 2 Copy va Deepcopy 
+# 3 Garbage collection
+
+
+
+# python 
+
+# a = 1
+# print(type(a))
+
+# a = "Salom"
+# print(type(a))
+
+
+# c
+
+# int a = 1
+# print(type(a))
+
+# char[100] a = "Salom"
+# print(type(a))
+
+
+
+
+
+
+# a = [1,2,3]
+# print(id(a))
+
+# mutable:
+
+# list 
+# set 
+# dict
+
+
+# a = (1,2,3)
+
+# imutable:
+
+
+# str
+# float
+# int
+# bool
+# tuple
+
+
+
+
+# a = 1
+# print(id(a))
+# b = a
+# print(id(b))
+
+
+# a = [123]
+# print(id(a))
+
+# b = a.copy()
+# print(id(b))
+
+
+
+# a = [123,1234,[123]]
+# print(id(a[-1]))
+
+# b = a.copy()
+# print(id(b[-1]))
+
+
+# import copy
+
+# a = [123,1234,[123]]
+# print(id(a[-1]))
+
+# b = copy.deepcopy(a)
+# print(id(b[-1]))
+
+
