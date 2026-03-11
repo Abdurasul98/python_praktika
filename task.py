@@ -2703,3 +2703,174 @@
 # print(id(b[-1]))
 
 
+
+
+
+# single Thread
+
+# import time
+
+
+# def read_file(name:str):
+#     print(f"Fayl o'qilyapti: {name}")
+#     time.sleep(2)
+#     print(f"Tugadi: {name}")
+
+# o1 = "file-1"
+# o2 = "file-2"
+# o3 = "file-3"
+
+# read_file(o1)
+# read_file(o2)
+# read_file(o3)
+
+
+
+
+
+
+
+# import time
+# import threading
+
+
+# def read_file(name:str):
+#     print(f"Fayl o'qilyapti: {name}")
+#     time.sleep(2)
+#     print(f"Tugadi: {name}")
+
+
+
+# f1 = "file-1"
+# f2 = "file-2"
+# f3 = "file-3"
+
+
+# o1 = threading.Thread(target = read_file, args=(f1,))
+# o2 = threading.Thread(target = read_file, args=(f2,))
+# o3 = threading.Thread(target = read_file, args=(f3,))
+
+# o1.start()
+# o3.start()
+# o2.start()
+
+# o1.join()
+# o2.join()
+# o3.join()
+
+
+# from multiprocessing import Process
+
+# def task():
+#     print("Process ishlayapti")
+
+
+# if __name__ == '__main__':
+#     p1 = Process(target=task)
+#     p2 = Process(target=task)
+
+#     p1.start()
+#     p2.start()
+
+#     p1.join()
+#     p2.join()
+
+
+
+
+
+
+
+# import asyncio
+
+# async def asinxron1(n:int):
+#     count = 0
+#     print(f"Asinxron-1 boshlandi u 10 gacha aylanadi")
+#     for i in range(0,n+1):
+#         count +=i
+#     await asyncio.sleep(5)
+#     print('Natija-1:',count)
+
+# async def asinxron2(n:int):
+#     count = 0
+#     print()
+#     print(f"Asinxron-2 boshlandi u 100 gacha aylanadi")
+#     for i in range(0,n+1):
+#         count += i
+#     await asyncio.sleep(10)
+#     print('Natija-2:',count)
+
+# number1 = 50
+# number2 = 100
+
+# async def start_asinxron():
+#     await asyncio.gather(asinxron1(number1),asinxron2(number2))
+
+
+# asyncio.run(start_asinxron())
+
+
+
+
+# import asyncio
+
+# async def task1():
+#     print("Task 1 boshlandi")
+#     await asyncio.sleep(3)
+#     print("Task 1 tugadi")
+
+# async def task2():
+#     print("Task 2 boshlandi")
+#     await asyncio.sleep(5)
+#     print("Task 2 tugadi")
+
+
+# async def main():
+#     await asyncio.gather(task1(),task2())
+
+# asyncio.run(main())
+
+
+
+
+
+
+# import time
+
+# def sinxron1():
+#     print("Sinxron-1 boshlandi")
+#     time.sleep(5)
+#     print("Sinxron-1 tugadi")
+
+# def sinxron2():
+#     print("Sinxron-2 boshlandi")
+#     time.sleep(5)
+#     print("Sinxron-2 tugadi")
+
+# def main():
+#     sinxron1()
+#     sinxron2()
+
+# main()
+
+
+# import asyncio
+
+
+# async def asinxron1():
+#     print("Asinxron-1 boshlandi")
+#     await asyncio.sleep(4)
+#     print("Asinxron-1 tugadi")
+
+# async def asinxron2():
+#     print("Asinxron-2 boshlandi")
+#     await asyncio.sleep(15)
+#     print("Asinxron-2 tugadi")
+
+
+
+
+# async def main():
+#     await asyncio.gather(asinxron1(),asinxron2())
+
+# asyncio.run(main())
