@@ -108,33 +108,74 @@
 
 
 
-matrix = [
-    [3, 1, 2],
-    [7, 4, 1],
-    [2, 8, 3]
-]
+# matrix = [
+#     [3, 1, 2],
+#     [7, 4, 1],
+#     [2, 8, 3]
+# ]
 
 
-class MatrixJavob:
-    def result(self,value):
-        if isinstance(value,list):
-            max_value = None
+# class MatrixJavob:
+#     def result(self,value):
+#         if isinstance(value,list):
+#             max_value = None
 
-            for i in value:
-                temp_sum = 0
-                for j in i:
-                    temp_sum += j
+#             for i in value:
+#                 temp_sum = 0
+#                 for j in i:
+#                     temp_sum += j
                     
-                if max_value is None:
-                    max_value = temp_sum
-                else:
-                    if max_value < temp_sum:
-                        max_value = temp_sum
-            return f"Eng katta qiymat:{max_value} shu matrix ichidan:{i}"
+#                 if max_value is None:
+#                     max_value = temp_sum
+#                 else:
+#                     if max_value < temp_sum:
+#                         max_value = temp_sum
+#             return f"Eng katta qiymat:{max_value} shu matrix ichidan:{i}"
 
-        else:
-            return f"Faqat list typeda MATRIX keladi"
+#         else:
+#             return f"Faqat list typeda MATRIX keladi"
         
-o1 = MatrixJavob()
-result = o1.result(matrix)
-print(result)
+# o1 = MatrixJavob()
+# result = o1.result(matrix)
+# print(result)
+
+
+
+
+
+# matrix = [
+#         [1, 2, 3, 4],
+#         [6, 7, 8, 1],
+#         [2, 2, 2, 2]
+#         ]
+
+
+
+# def matix_max_sum_index(a) -> int:
+#     index = 0
+#     value_max = None
+#     for i in range(len(a)):
+#         temp = 0
+
+#         for j in a[i]:
+#             temp += j
+
+#         if value_max is None:
+#             value_max = temp
+#             index = i
+#         else:
+#             if temp > value_max:
+#                 value_max = temp
+#                 index = i
+
+
+
+#     return index
+
+
+
+# print(matix_max_sum_index(matrix))
+
+
+
+

@@ -1767,6 +1767,240 @@
 
 
 
+# class Book:
+#     def __init__(self,title,author,year):
+#         self.title = title
+#         self.author = author
+#         self.year = year
+#         self.is_taken = False
+
+
+#     def info(self):
+#         return f"""128
+#         Book title: {self.title}
+#         Book author: {self.author} 
+#         Book year: {self.year}
+#         Book is_taken: {self.is_taken}
+#         """
+
+#     def take_book(self):
+#         if self.is_taken == False:
+#             self.is_taken = True
+#             return f"Kitob muvaffaqiyatli olindi"
+#         else:
+#             return "Bu kitob band"
+
+#     def return_book(self):
+#         self.is_taken = False
+#         return "Kitob qaytarildi"
+    
+
+# class Library:
+#     def __init__(self):
+#         self.db_book = list()
+
+
+#     def add_book(self,book):
+#         self.db_book.append(book)
+#         print(f'Book added: {book.title}')
+
+#     def show_books(self):
+#         if not self.db_book:
+#             print("Kitoblar hali yoq")
+#         else:
+#             for item in self.db_book:
+#                 print(item.info())
+
+#     def search_book(self,title):
+#         found = False
+
+#         for item in self.db_book:
+#             if item.title.lower() == title.lower():
+#                 print(item.info())
+#                 found = True
+
+#         if found == False:
+#             print("Kitob topilmadi")
+
+#     def taken_books(self):
+#         found = False
+
+#         for item in self.db_book:
+#             if item.is_taken == True:
+#                 print(item.info())
+#                 found = True
+
+#         if found == False:
+#             print("Olingan kitoblar yoq")
+
+
+# book1 = Book("Atomic Habits", "James Clear", 2018)
+# book2 = Book("Clean Code", "Robert Martin", 2008)
+# book3 = Book("Python Crash Course", "Eric Matthes", 2019)
+
+# library = Library()
+
+# library.add_book(book1)
+# library.add_book(book2)
+# library.add_book(book3)
+
+# print("\n----- All Books -----")
+# library.show_books()
+
+# print("\n----- Take Book -----")
+# print(book1.take_book())
+
+# print("\n----- Taken Books -----")
+# library.taken_books()
+
+# print("\n----- Search Book -----")
+# library.search_book("clean code")
+
+# print("\n----- Return Book -----")
+# print(book1.return_book())
+
+# print("\n----- Taken Books After Return -----")
+# library.taken_books()
 
 
 
+
+class User:
+    def __init__(self, username, password, email):
+        self.username = username
+        self.password = password 
+        self.email = email
+
+
+    def validate_username(self):
+        try:
+            values = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+            count_username = 0
+
+            for _ in self.username:
+                count_username += 1
+
+            if count_username < 5:
+                return False
+
+            for i in range(len(self.username)):
+                if self.username[i] not in values:
+                    return False
+            
+            return self.username
+            
+        except Exception :
+            raise Exception("Username kiritishda 5 tadan ko'proq, faqat raqam va harf bo'lish kerak")
+        finally:
+            print("validate_username ishladi")
+
+    
+    def validate_password(self):
+        try:
+            #password uzunligi
+            lenght_pass = 0
+            #Katta harf borligi
+            alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            count_upper_latter = 0
+            #Kichik harf borligi
+            alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+            count_lower_latter = 0
+            #Raqam borligini 
+            numbers = "0123456789"
+            count_numbers = 0
+
+
+            for _ in self.password:
+                lenght_pass += 1
+
+            for i in self.password:
+                if i in alphabet_upper:
+                    count_upper_latter += 1
+
+            for i in self.password:
+                if i in alphabet_lower:
+                    count_lower_latter += 1
+
+            for i in self.password:
+                if i in numbers:
+                    count_numbers += 1
+
+            if lenght_pass >= 8 and count_upper_latter >= 1 and count_lower_latter >= 1 and count_numbers >= 1:
+                return self.password
+            return False
+        except:
+            raise Exception("Parol havfsiz emas u havfli")
+        finally:
+            print("validate_password ishladi")
+
+    def register(self):
+        username = self.validate_username()
+        password = self.validate_password()
+        email = self.validate_email()
+
+        if username and password and email:
+            print("Muvaffaqiyatli ro'yxatdan o'tdi")
+        else:
+            print("Ro'yxatdan o'tmadi")
+
+    def validate_email(self):
+        try:
+            #@ borligi
+            count_dog = 0
+            for i in self.email:
+                if i == "@":
+                    count_dog += 1
+            if count_dog != 1:
+                return False
+            
+            #@ dan oldin belgi borligini 
+            a_index = 0
+            result_email_count_before = False
+            for i in range(len(self.email)):
+                if self.email[i] in "@":
+                    a_index = i
+            if a_index > 0:
+                result_email_count_before = True
+
+            #@dan keyin belgi borligini
+            aa_index = 0 
+            result_email_count_after = False
+            for i in range(len(self.email)):
+                if self.email[i] in "@":
+                    aa_index = i
+            if aa_index < len(self.email) - 1:
+                result_email_count_after = True
+
+            if count_dog == 1 and result_email_count_before and result_email_count_after:
+                return self.email
+
+        except:
+            return False
+        finally:
+            print("validate_email ishladi")
+
+
+user = User(
+    username="Abdur98",
+    password="Abdur123",
+    email="abdur@gmail.com"
+)
+
+user.register()
+
+user = User(
+    username="Abd",
+    password="Abdur123",
+    email="abdur@gmail.com"
+)
+
+user.register()
+
+user = User(
+    username="Abdur98",
+    password="Abdur123",
+    email="abdur@@gmail.com"
+)
+
+user.register()
