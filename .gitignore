@@ -2,3 +2,7 @@ venv/
 __pycache__/
 .idea/
 *.pyc
+# Compiled C executable
+c
+# VS Code
+.vscode/

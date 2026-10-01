@@ -114,7 +114,6 @@
 #     [2, 8, 3]
 # ]
 
-
 # class MatrixJavob:
 #     def result(self,value):
 #         if isinstance(value,list):
@@ -179,3 +178,26 @@
 
 
 
+
+# matrix = [
+#     [4, 2, 7],
+#     [1, 9, 3],
+#     [5, 6, 2]
+# ]
+
+# for item in matrix:
+#     sum = 0
+#     for i in item:
+#         sum += i
+#     print(sum)
+    
+
+
+
+            
+
+            
+            
+        
+        
+        

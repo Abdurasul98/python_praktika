@@ -2806,7 +2806,6 @@
 # async def start_asinxron():
 #     await asyncio.gather(asinxron1(number1),asinxron2(number2))
 
-
 # asyncio.run(start_asinxron())
 
 
@@ -2874,3 +2873,224 @@
 #     await asyncio.gather(asinxron1(),asinxron2())
 
 # asyncio.run(main())
+
+
+
+# numbers = [4, 7, 2, 9, 3]
+
+
+# def sum_numbers(nums):
+#     result = 0
+
+#     for number in nums:
+#         result = result + number
+    
+#     return result
+
+
+# result = sum_numbers(numbers)
+
+# print(result)
+
+
+
+
+# numbers = [4, 7, 2, 9, 3]
+
+# class MaxNumber:
+
+#     def result(self,a):
+#         max_number = None
+
+#         for i in a:
+#             if max_number is None:
+#                 max_number = i
+#             elif i > max_number:
+#                 max_number = i
+
+#         return max_number
+    
+# o = MaxNumber()
+
+# result = o.result(numbers)
+# print(result)
+
+
+
+
+
+# numbers = [4, 7, 2, 9, 6, 3, 8]
+
+
+# class JuftSon:
+#     def juft(self,l):
+#         counter = 0
+
+#         for i in l:
+#             if i % 2 == 0:
+#                 counter +=1
+        
+#         return counter
+
+# o1 = JuftSon()
+
+# result = o1.juft(numbers)
+
+# print(result)
+
+
+# numbers = [4, 7, 2, 9, 6, 3, 8, 5]
+
+# class ToqYigindi:
+
+#     def toq(self,l):
+#         toq_sum = 0
+#         for i in l:
+#             if i % 2:
+#                 toq_sum += i
+        
+#         return toq_sum
+    
+
+# o1 = ToqYigindi()
+
+
+# result = o1.toq(numbers)
+
+# print(result)
+
+
+
+# numbers = [-3, 5, -1, 8, 0, -7, 4, 2]
+
+# class MusbatSon:
+#     def musbat(self,l) -> int:
+#         counter = 0
+
+#         for i in l:
+#             if i > 0 and i != 0:
+#                 counter = counter + 1
+
+        
+#         return counter
+
+# o1 = MusbatSon()
+
+# result = o1.musbat(numbers)
+
+# print(result)
+
+
+
+
+
+# numbers = [-8, 5, -3, 12, 7, -4, 6, 9, -2, 10]
+
+
+
+# class SortAndResult:
+#     def manfiy(self,l) -> list:
+#         manfiy_sonlar = list()
+
+#         for i in l:
+#             if i < 0:
+#                 manfiy_sonlar.append(i)
+        
+#         return manfiy_sonlar
+    
+
+#     def yegindi(self,l) -> int:
+#         result = 0
+#         for i in l:
+#             result += i
+        
+#         return result
+    
+
+#     def modul(self,l)->int:
+#         if l < 0:
+#             l = l * -1
+
+#         return l
+    
+
+#     def info(self,l):
+#         print(l)
+
+
+# o1 = SortAndResult()
+
+# result1 = o1.manfiy(numbers)
+
+# result2 = o1.yegindi(result1)
+# result3 = o1.modul(result2)
+# o1.info(result3)
+
+
+
+# class Math:
+#     def find_max(self,numbers):
+#         result = None
+
+#         for i in numbers:
+#             if result is None:
+#                 result = i
+#             elif i > result:
+#                 result = i
+        
+#         return result
+
+
+# o1 = Math()
+
+# print(o1.find_max([7, 2, 9, 4, 1]))
+
+
+
+# numbers = [-5, -2, -10, -1]
+
+
+# class Math:
+#     def find_min(self,l):
+#         result = None
+
+#         for i in l:
+#             if result is None:
+#                 result = i
+#             elif i < result:
+#                 result = i
+        
+#         return result
+
+# o1 = Math()
+
+# print(o1.find_min(numbers))
+
+
+
+
+# numbers = [7, 2, 9, 4, 1]
+
+
+# class Math:
+#     def find_second_number(self,list):
+#         second_max_number = None
+#         max_number = None
+        
+#         for i in list:
+#             if max_number is None or i > max_number:
+#                 second_max_number = max_number
+#                 max_number = i
+
+#             elif second_max_number is None or i > second_max_number:
+#                 second_max_number = i
+                
+            
+#         return second_max_number
+
+# o1 = Math()
+
+# print(o1.find_second_number(numbers))
+
+
+
